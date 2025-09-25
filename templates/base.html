@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    {# CSS, icons, GA, etc. #}
+    {% include "partials/head.html" %}
+
+    {# SEO meta (uses {{ meta }} from views) #}
+    {% include "partials/seo.html" %}
+
+    <title>{% block title %}HMD Klusbedrijf{% endblock %}</title>
+
+    {# Page-specific additions (e.g. homepage JSON-LD) #}
+    {% block extra_head %}{% endblock %}
+</head>
+
+<body>
+
+    <div class="page-wraper">
+        {% include "partials/header.html" %}
+
+        {% block content %}{% endblock %}
+
+        {% include "partials/footer.html" %}
+    </div>
+
+    {# JS files #}
+    <script src="{% static 'js/jquery-3.6.1.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/magnific-popup.min.js' %}"></script>
+    <script src="{% static 'js/waypoints.min.js' %}"></script>
+    <script src="{% static 'js/counterup.min.js' %}"></script>
+    <script src="{% static 'js/waypoints-sticky.min.js' %}"></script>
+    <script src="{% static 'js/isotope.pkgd.min.js' %}"></script>
+    <script src="{% static 'js/imagesloaded.pkgd.min.js' %}"></script>
+    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'js/jquery.owl-filter.js' %}"></script>
+    <script src="{% static 'js/custom.js' %}"></script>
+    <script src="{% static 'js/shortcode.js' %}"></script>
+    <script src="{% static 'js/jquery.bgscroll.js' %}"></script>
+    <script src="{% static 'js/hero-slider.js' %}"></script>
+    <script src="{% static 'js/bot.js' %}"></script>
+    <script src="{% static 'js/gallery.js' %}"></script>
+
+    {% block extra_js %}{% endblock %}
+
+
+</body>
+
+</html>

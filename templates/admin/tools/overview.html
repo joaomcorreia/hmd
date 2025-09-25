@@ -1,0 +1,237 @@
+{% extends "admin/base_site.html" %}
+{% load static %}
+
+{% block extrastyle %}{{ block.super }}
+<style>
+    :root {
+        --primary: #1e4db7
+    }
+
+    .wrap {
+        max-width: 1100px;
+        margin: auto
+    }
+
+    .meta {
+        font-size: 12px;
+        color: #666;
+        margin-bottom: 16px
+    }
+
+    .legend {
+        display: flex;
+        gap: 12px;
+        font-size: 12px;
+        margin: 8px 0 16px
+    }
+
+    .pill {
+        display: inline-block;
+        padding: 2px 8px;
+        border-radius: 999px;
+        background: #eee
+    }
+
+    .pill.ok {
+        background: #e8f5e9;
+        color: #1b5e20
+    }
+
+    .pill.warn {
+        background: #fff8e1;
+        color: #8d6e00
+    }
+
+    .pill.bad {
+        background: #ffebee;
+        color: #b71c1c
+    }
+
+    .table-wrap {
+        overflow: auto;
+        border: 1px solid #e6e6e6;
+        border-radius: 10px;
+        background: #fff
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse
+    }
+
+    thead th {
+        text-align: left;
+        font-weight: 600;
+        font-size: 12px;
+        color: #555;
+        background: #f7f9fc;
+        border-bottom: 1px solid #e6e6e6;
+        padding: 10px
+    }
+
+    tbody td {
+        padding: 12px 10px;
+        border-bottom: 1px solid #f0f0f0;
+        vertical-align: top
+    }
+
+    tbody tr:hover {
+        background: #fafcff
+    }
+
+    .service {
+        font-weight: 600
+    }
+
+    .badge {
+        font-size: 12px;
+        padding: 2px 8px;
+        border: 1px solid #dcdcdc;
+        border-radius: 999px
+    }
+
+    .right {
+        text-align: right
+    }
+
+    .note {
+        color: #666;
+        font-size: 12px
+    }
+
+    @media (max-width:720px) {
+        thead {
+            display: none
+        }
+
+        tbody tr {
+            display: block;
+            padding: 10px;
+            border-bottom: 1px solid #eee
+        }
+
+        tbody td {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            border: 0;
+            padding: 8px 4px
+        }
+
+        tbody td::before {
+            content: attr(data-label);
+            font-weight: 600;
+            color: #555
+        }
+    }
+
+    .module {
+        float: left;
+        width: 200px;
+        margin-right: 20px
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="admin-sidebar">
+    <div class="module">
+        <h2>SUSBSCRIPTIONS</h2>
+        <ul class="actionlist">
+            <li><a href="{% url 'admin-tool' 'overview' %}">Overview</a></li>
+            <li><a href="{% url 'admin-tool' 'domain-name' %}">Domain Name</a></li>
+            <li><a href="{% url 'admin-tool' 'hosting' %}">Hosting</a></li>
+            <li><a href="{% url 'admin-tool' 'website' %}">Website</a></li>
+            <li><a href="{% url 'admin-tool' 'seo' %}">SEO</a></li>
+            <li><a href="{% url 'admin-tool' 'social-networks' %}">Social Networks</a></li>
+        </ul>
+    </div>
+
+    <div class="wrap">
+        <h1>Subscriptions</h1>
+        <div class="meta">Laatst bijgewerkt: <span id="updated"></span></div>
+
+        <div class="legend">
+            <span>Status:</span>
+            <span class="pill ok">Actief</span>
+            <span class="pill warn">Binnenkort</span>
+            <span class="pill bad">Verlopen</span>
+        </div>
+
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Service</th>
+                        <th>Plan</th>
+                        <th>Start</th>
+                        <th>Vervalt op</th>
+                        <th>Status</th>
+                        <th class="right">Prijs / mnd</th>
+                        <th>Opmerking</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="service" data-label="Service">Website</td>
+                        <td data-label="Plan"><span class="badge">Multipage</span></td>
+                        <td data-label="Start">28-07-2025</td>
+                        <td data-label="Vervalt op">Lifetime</td>
+                        <td data-label="Status"><span class="pill ok">Actief</span></td>
+                        <td class="right" data-label="Prijs / mnd">Lifetime</td>
+                        <td data-label="Opmerking" class="note"><a href="#">Eerst Klant Actie</a></td>
+                    </tr>
+                    <tr>
+                        <td class="service" data-label="Service">Hosting</td>
+                        <td data-label="Plan"><span class="badge">Basic</span></td>
+                        <td data-label="Start">28-07-2025</td>
+                        <td data-label="Vervalt op">28-07-2026</td>
+                        <td data-label="Status"><span class="pill ok">Actief</span></td>
+                        <td class="right" data-label="Prijs / mnd">€ 12,95</td>
+                        <td data-label="Opmerking" class="note">1 domein. 10 GB opslag.</td>
+                    </tr>
+                    <tr>
+                        <td class="service" data-label="Service">Domeinregistratie</td>
+                        <td data-label="Plan"><span class="badge">.nl</span></td>
+                        <td data-label="Start">28-07-2025</td>
+                        <td data-label="Vervalt op">28-07-2026</td>
+                        <td data-label="Status"><span class="pill ok">Actief</span></td>
+                        <td class="right" data-label="Prijs / mnd">€ 9,25</td>
+                        <td data-label="Opmerking" class="note"><a href="#">Verleng nu</a></td>
+                    </tr>
+                    <tr>
+                        <td class="service" data-label="Service">SEO</td>
+                        <td data-label="Plan"><span class="badge">Premium</span></td>
+                        <td data-label="Start">28-07-2025</td>
+                        <td data-label="Vervalt op">30-09-2025</td>
+                        <td data-label="Status"><span class="pill ok">Actief</span></td>
+                        <td class="right" data-label="Prijs / mnd">€ -,--</td>
+                        <td data-label="Opmerking" class="note"><a href="#">Verleng nu</a></td>
+                    </tr>
+                    <tr>
+                        <td class="service" data-label="Service">Social Networks</td>
+                        <td data-label="Plan"><span class="badge">Premium</span></td>
+                        <td data-label="Start">28-07-2025</td>
+                        <td data-label="Vervalt op">30-09-2025</td>
+                        <td data-label="Status"><span class="pill ok">Actief</span></td>
+                        <td class="right" data-label="Prijs / mnd">€ -,--</td>
+                        <td data-label="Opmerking" class="note"><a href="#">Verleng nu</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <p class="note" style="margin-top:12px">
+            Vragen of verlengen? Mail of WhatsApp ons met uw klantnummer.
+        </p>
+    </div>
+
+    <script>
+        (function () {
+            var el = document.getElementById('updated');
+            if (!el) return;
+            var d = new Date();
+            el.textContent = d.toLocaleDateString('nl-NL', { day: '2-digit', month: '2-digit', year: 'numeric' });
+        })();
+    </script>
+    {% endblock %}

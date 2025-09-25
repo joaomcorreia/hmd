@@ -1,0 +1,204 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Bouwrenovatie | HMD Klusbedrijf{% endblock %}
+
+{% block extra_head %}
+<meta name="description"
+    content="Bouwrenovatie in Dinteloord en omgeving: keuken, badkamer, wanden/plafonds en vloeren. Strak uitgevoerd met heldere planning.">
+<link rel="canonical" href="{{ request.build_absolute_uri }}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="HMD Klusbedrijf">
+<meta property="og:title" content="Bouwrenovatie | HMD Klusbedrijf">
+<meta property="og:description"
+    content="Strakke verbouwingen en renovaties: keuken, badkamer, wanden, plafonds en vloeren.">
+<meta property="og:url" content="{{ request.build_absolute_uri }}">
+<meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}{% static 'img/og-default.jpg' %}">
+<style>
+    /* screen-reader only */
+    .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+    }
+</style>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Home","item":"{{ request.scheme }}://{{ request.get_host }}/"},
+    {"@type":"ListItem","position":2,"name":"Diensten","item":"{{ request.scheme }}://{{ request.get_host }}/diensten/"},
+    {"@type":"ListItem","position":3,"name":"Bouwrenovatie","item":"{{ request.scheme }}://{{ request.get_host }}{{ request.path }}"}
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Service",
+  "name":"Bouwrenovatie",
+  "description":"Keuken en badkamer, wanden/plafonds en vloeren — strak uitgevoerd met heldere planning in Dinteloord en omgeving.",
+  "serviceType":"Bouwrenovatie",
+  "areaServed":["Dinteloord","Steenbergen","Breda","Dordrecht","Rotterdam"],
+  "url":"{{ request.scheme }}://{{ request.get_host }}{{ request.path }}",
+  "provider":{
+    "@type":"LocalBusiness",
+    "name":"HMD Klusbedrijf",
+    "image":"{{ request.scheme }}://{{ request.get_host }}{% static 'img/og-default.jpg' %}",
+    "telephone":"+31 6 87111289",
+    "address":{
+      "@type":"PostalAddress",
+      "streetAddress":"Witte de Withstraat 28",
+      "postalCode":"4671 AP",
+      "addressLocality":"Dinteloord",
+      "addressCountry":"NL"
+    }
+  }
+}
+</script>
+{% endblock %}
+
+{% block content %}
+<div class="page-wraper">
+    <div class="page-content">
+
+        <h1 class="sr-only">Bouwrenovatie</h1>
+
+        <!-- HERO -->
+        <div class="mt-bnr-inr overlay-wraper bg-parallax bg-middle-center" data-stellar-background-ratio="0.5"
+            style="background-image:url('{% static 'img/background/banner-default.jpg' %}')">
+            <div class="overlay-main bg-black opacity-07"></div>
+            <div class="container">
+                <div class="mt-bnr-inr-entry">
+                    <div class="banner-title-outer">
+                        <div class="banner-title-name">
+                            <h2 class="m-b0">Bouwrenovatie</h2>
+                            <p class="breadcrumb-white">Kleine verbouwingen en renovaties met professioneel vakmanschap
+                            </p>
+                        </div>
+                    </div>
+                    <div>
+                        <ul class="mt-breadcrumb breadcrumb-style-2">
+                            <li><a href="{% url 'index' %}">Home</a></li>
+                            <li><a href="{% url 'diensten' %}">Diensten</a></li>
+                            <li>Bouwrenovatie</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- HERO END -->
+
+        <!-- SECTION CONTENT START -->
+        <div class="section-full p-tb80 inner-page-padding">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-8 col-md-12">
+                        <div class="blog-post date-style-3 blog-detail text-black">
+
+                            <div class="mt-post-media clearfix m-b30">
+                                <ul class="grid-post">
+                                    <li>
+                                        <div class="portfolio-item">
+                                            <img class="img-responsive"
+                                                src="{% static 'img/services/bouw-renovatie-01.jpg' %}"
+                                                alt="Renovatie- en verbouwwerk in Dinteloord door HMD Klusbedrijf">
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="mt-post-title">
+                                <img class="img-responsive" src="{% static 'img/diensten/bouwrenovatie.jpg' %}"
+                                    alt="Bouwrenovatie in Dinteloord: keuken, badkamer, wanden/plafonds en vloeren">
+                                <div class="empty20"></div>
+                                <h3 class="post-title">Verbouwingen en renovaties met strak eindresultaat</h3>
+                                <p>Wij voeren <strong>kleine verbouwingen en renovaties in Dinteloord</strong> en
+                                    omgeving uit.
+                                    Efficiënt gepland, duidelijk gecommuniceerd en netjes opgeleverd.</p>
+
+                                <p>U heeft één vast aanspreekpunt. We stemmen planning, leveringen en eventuele
+                                    onderaannemers op elkaar af
+                                    zodat werkzaamheden soepel in elkaar overlopen en u zo min mogelijk hinder ervaart.
+                                </p>
+
+                                <p>Samen kiezen we materialen en afwerkingen die passen bij uw woning en gebruik:
+                                    denk aan vochtwerende platen, isolatie, duurzame verf- en stucsystemen of slijtvaste
+                                    vloeroplossingen. We adviseren praktisch en budgetvriendelijk.</p>
+
+                                <p>Tijdens de uitvoering werken we stofbeperkt, beschermen we vloeren/meubels en houden
+                                    we de
+                                    werkplek netjes. Na oplevering lopen we alles samen na, zodat het resultaat direct
+                                    bruikbaar is.</p>
+                            </div>
+
+                            <div class="mt-post-text">
+                                <h4>Wat wij doen</h4>
+                                <ul class="list-check-circle">
+                                    <li><strong>Wanden en plafonds</strong>: metal-stud, gipsplaten, verplaatsen of
+                                        bijplaatsen</li>
+                                    <li><strong>Kozijnen en deuren</strong>: nieuw plaatsen of verleggen</li>
+                                    <li><strong>Sloop en opbouw</strong>: veilig verwijderen en opnieuw opbouwen</li>
+                                    <li><strong>Keuken klaarmaken</strong>: leidingwerk, elektra, wanden en vloer
+                                        egaliseren</li>
+                                    <li><strong>Badkamer voorbereidende werkzaamheden</strong>: leidingwerk, afwerking,
+                                        afschot</li>
+                                    <li><strong>Isolatie en afwerking</strong>: naden dichten, stucwerk en schilderwerk
+                                        volgens planning</li>
+                                </ul>
+
+                                <h4>Werkwijze</h4>
+                                <ul class="list-angle-right">
+                                    <li>Opname op locatie en helder plan</li>
+                                    <li>Materialen kiezen en planning afstemmen</li>
+                                    <li>Uitvoering met stofbeperking en veilige werkwijze</li>
+                                    <li>Strakke oplevering en schoon achterlaten</li>
+                                </ul>
+
+                                <blockquote class="site-bg-dark text-white author-quote">
+                                    <h4 class="m-b0">Renoveren is maatwerk. Wij combineren nette afwerking met een
+                                        realistische planning. <i class="fa fa-quote-right"></i></h4>
+                                    <div class="p-t15 text-white">
+                                        <strong class="site-text-primary">HMD Klusbedrijf</strong>
+                                        <span>Bouwrenovatie</span>
+                                    </div>
+                                </blockquote>
+
+                                <p>Project starten in <strong>Dinteloord</strong> of bijvoorbeeld
+                                    <strong>Steenbergen</strong>?
+                                    Neem contact op voor een <strong>vrijblijvende offerte</strong>.
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- SIDEBAR -->
+                    <div class="col-lg-4 col-md-12">
+                        <aside class="side-bar">
+                            <div class="empty50"></div>
+                            {% include "partials/sidebar-map-widget.html" %}
+                            {% include "partials/sidebar-whatsapp-widget.html" %}
+                            {% include 'partials/sidebar-diensten-ticker.html' %}
+                            {% include 'partials/sidebar-portfolio.html' %}
+                        </aside>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- SECTION CONTENT END -->
+
+    </div>
+</div>
+{% endblock %}

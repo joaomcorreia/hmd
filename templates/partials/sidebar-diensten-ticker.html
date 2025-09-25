@@ -1,0 +1,153 @@
+{% load static %}
+<div class="widget bg-white recent-posts-entry diensten-ticker">
+  <h4 class="widget-title">Diensten</h4>
+  <div class="section-content">
+    <div class="ticker-viewport" id="dienstenTicker" data-interval="4000">
+      <div class="ticker-track">
+        {% static 'img/diensten/badkamer.jpg' as FALLBACK %}
+        {% for d in diensten %}
+        <a class="widget-post clearfix ticker-item" href="{% url 'service-detail' d.slug %}">
+          <div class="mt-post-media">
+
+            {% if d.img %}
+            {% if d.img.url %}
+            <img src="{{ d.img.url }}" alt="{{ d.title }}">
+            {% else %}
+            {% static d.img as STATIC_SRC %}
+            <img src="{{ STATIC_SRC }}" alt="{{ d.title }}">
+            {% endif %}
+            {% else %}
+            <img src="{{ FALLBACK }}" alt="{{ d.title }}">
+            {% endif %}
+
+          </div>
+          <div class="mt-post-info">
+            <div class="mt-post-header">
+              <h6 class="post-title m-b0">{{ d.title }}</h6>
+            </div>
+            <div class="mt-post-meta"><small>{{ d.desc }}</small></div>
+          </div>
+        </a>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <style>
+  .diensten-ticker .widget-post {
+    display: flex;
+    align-items: center;
+    margin: 0 !important
+  }
+
+  .diensten-ticker .ticker-viewport {
+    overflow: hidden
+  }
+
+  .diensten-ticker .ticker-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 0;
+    margin: 0
+  }
+
+  .diensten-ticker .mt-post-media {
+    flex: 0 0 80px;
+    margin: 0
+  }
+
+  .diensten-ticker .mt-post-media img {
+    width: 80px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 4px
+  }
+
+  .diensten-ticker .mt-post-info {
+    margin: 0 !important
+  }
+</style> -->
+
+
+<style>
+  .diensten-ticker .widget-post {
+    display: flex;
+    align-items: center;
+    margin: 0 !important
+  }
+
+  .diensten-ticker .ticker-viewport {
+    overflow: hidden
+  }
+
+  .diensten-ticker .ticker-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 0;
+    margin: 0
+  }
+
+  .diensten-ticker .mt-post-media {
+    flex: 0 0 80px;
+    margin: 0
+  }
+
+  .diensten-ticker .mt-post-media img {
+    width: 80px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 4px
+  }
+
+  .diensten-ticker .mt-post-info {
+    margin: 0 !important
+  }
+
+  .h6.post-title.m-b0 {
+    font-size: 16px;
+    margin-bottom: 4px;
+  }
+</style>
+
+<script>
+  (function () {
+    var vp = document.getElementById('dienstenTicker'); if (!vp) return;
+    var track = vp.querySelector('.ticker-track'); var items = [...track.children];
+    var visible = 3, timer = null, animating = false;
+
+    function outerH(el) { var cs = getComputedStyle(el); return el.offsetHeight + parseFloat(cs.marginTop) + parseFloat(cs.marginBottom) }
+    function setViewportHeight() { var sum = 0; for (var k = 0; k < Math.min(visible, items.length); k++) sum += outerH(track.children[k]); vp.style.height = sum + 'px' }
+
+    function tick() {
+      if (animating || !items.length) return;
+      var first = track.firstElementChild, h = outerH(first);
+      animating = true;
+      track.style.transition = 'transform .5s ease';
+      track.style.transform = 'translateY(-' + h + 'px)';
+    }
+
+    track.addEventListener('transitionend', function (e) {
+      // ignore bubbled transitions from children
+      if (e.target !== track || e.propertyName !== 'transform') return;
+      track.appendChild(track.firstElementChild);
+      track.style.transition = 'none';
+      track.style.transform = 'translateY(0)';
+      items = [...track.children];
+      setViewportHeight();
+      animating = false;
+    });
+
+    function start() { if (timer) return; timer = setInterval(tick, Number(vp.dataset.interval || 4000)); }
+    function stop() { if (timer) { clearInterval(timer); timer = null; } }
+
+    function ready() { setViewportHeight(); start(); }
+    if (document.readyState === 'complete') { ready(); } else window.addEventListener('load', ready);
+    window.addEventListener('resize', setViewportHeight);
+
+    vp.addEventListener('mouseenter', stop);
+    vp.addEventListener('mouseleave', start);
+  })();
+</script>

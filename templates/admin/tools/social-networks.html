@@ -1,0 +1,86 @@
+{% extends "admin/base_site.html" %}
+{% block content %}
+<h1>Social Networks</h1>
+
+<div class="module">
+    <h2><a href="#fb" onclick="toggle('fb');return false;">Facebook</a></h2>
+    <div id="fb" style="display:block">
+        <table class="adminlist">
+            <tr>
+                <th>Pagina</th>
+                <td>…</td>
+            </tr>
+            <tr>
+                <th>URL</th>
+                <td>…</td>
+            </tr>
+            <tr>
+                <th>Status</th>
+                <td>Actief</td>
+            </tr>
+            <tr>
+                <th>Opmerking</th>
+                <td>…</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<div class="module">
+    <h2><a href="#ig" onclick="toggle('ig');return false;">Instagram</a></h2>
+    <div id="ig" style="display:none">
+        <table class="adminlist">
+            <tr>
+                <th>Handle</th>
+                <td>…</td>
+            </tr>
+            <tr>
+                <th>URL</th>
+                <td>…</td>
+            </tr>
+            <tr>
+                <th>Status</th>
+                <td>Actief</td>
+            </tr>
+            <tr>
+                <th>Opmerking</th>
+                <td>…</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<div class="module">
+    <h2><a href="#google" onclick="toggle('google');return false;">Google</a></h2>
+    <div id="google" style="display:none">
+        <table class="adminlist">
+            <tr>
+                <th>Business</th>
+                <td>…</td>
+            </tr>
+            <tr>
+                <th>URL</th>
+                <td>…</td>
+            </tr>
+            <tr>
+                <th>Status</th>
+                <td>Actief</td>
+            </tr>
+            <tr>
+                <th>Opmerking</th>
+                <td>…</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<script>
+    function toggle(id) {
+        ['fb', 'ig', 'google'].forEach(function (x) {
+            var el = document.getElementById(x);
+            if (!el) return;
+            el.style.display = (x === id && el.style.display !== 'block') ? 'block' : 'none';
+        });
+    }
+</script>
+{% endblock %}

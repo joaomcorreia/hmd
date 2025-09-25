@@ -1,0 +1,157 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Stukwerk | HMD Klusbedrijf{% endblock %}
+
+{% block extra_head %}
+<meta name="description"
+  content="Stukwerk in Dinteloord en omgeving: strakke wanden en plafonds, sausklaar en netjes afgewerkt.">
+<link rel="canonical" href="{{ request.build_absolute_uri }}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="HMD Klusbedrijf">
+<meta property="og:title" content="Stukwerk | HMD Klusbedrijf">
+<meta property="og:description"
+  content="Stukwerk in Dinteloord en omgeving: strakke wanden en plafonds, sausklaar en netjes afgewerkt.">
+<meta property="og:url" content="{{ request.build_absolute_uri }}">
+<meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}{% static 'img/og-default.jpg' %}">
+<meta name="robots" content="index,follow">
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Home","item":"{{ request.scheme }}://{{ request.get_host }}/"},
+    {"@type":"ListItem","position":2,"name":"Diensten","item":"{{ request.scheme }}://{{ request.get_host }}{% url 'diensten' %}"},
+    {"@type":"ListItem","position":3,"name":"Stukwerk","item":"{{ request.scheme }}://{{ request.get_host }}{{ request.path }}"}
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Service",
+  "name":"Stukwerk",
+  "description":"Strakke wanden en plafonds, sausklaar, reparaties en afwerking in Dinteloord en omgeving.",
+  "serviceType":"Stukwerk",
+  "areaServed":"Dinteloord en omgeving",
+  "url":"{{ request.scheme }}://{{ request.get_host }}{{ request.path }}",
+  "provider":{
+    "@type":"LocalBusiness",
+    "name":"HMD Klusbedrijf",
+    "image":"{{ request.scheme }}://{{ request.get_host }}{% static 'img/og-default.jpg' %}",
+    "telephone":"+31 6 87111289",
+    "address":{
+      "@type":"PostalAddress",
+      "streetAddress":"Witte de Withstraat 28",
+      "postalCode":"4671 AP",
+      "addressLocality":"Dinteloord",
+      "addressCountry":"NL"
+    }
+  }
+}
+</script>
+{% endblock %}
+
+{% block content %}
+<div class="page-content">
+  <!-- HERO -->
+  <div class="mt-bnr-inr overlay-wraper bg-parallax bg-top-center" data-stellar-background-ratio="0.5"
+    style="background-image:url('{% static 'img/background/banner-default.jpg' %}')">
+    <div class="overlay-main bg-black opacity-07"></div>
+    <div class="container">
+      <div class="mt-bnr-inr-entry">
+        <div class="banner-title-outer">
+          <div class="banner-title-name">
+            <h2 class="m-b0">Stukwerk</h2>
+            <p class="breadcrumb-white">Strakke wanden en plafonds – sausklaar opgeleverd</p>
+          </div>
+        </div>
+        <div>
+          <ul class="mt-breadcrumb breadcrumb-style-2">
+            <li><a href="{% url 'index' %}">Home</a></li>
+            <li><a href="{% url 'diensten' %}">Diensten</a></li>
+            <li>Stukwerk</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- HERO END -->
+
+  <!-- SECTION CONTENT START -->
+  <div class="section-full p-tb80 inner-page-padding">
+    <div class="container">
+      <div class="row">
+        <!-- MAIN -->
+        <div class="col-lg-8 col-md-12">
+          <div class="blog-post date-style-3 blog-detail text-black">
+            <div class="mt-post-media clearfix m-b30">
+              <ul class="grid-post">
+                <li>
+                  <div class="portfolio-item">
+                    <img class="img-responsive" src="{% static 'img/blog/stukwerk.jpg' %}"
+                      alt="Stukwerk in Dinteloord: wanden en plafonds sausklaar">
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <div class="mt-post-title">
+              <img class="m-r10" src="{% static 'img/diensten/stukwerk.jpg' %}" alt="Stukwerk">
+              <div class="empty50"></div>
+              <h3 class="post-title">Strak stukwerk. Duurzame afwerking.</h3>
+            </div>
+
+            <div class="mt-post-text">
+              <p>Wij leveren <strong>stukwerk in Dinteloord</strong> en omgeving. Van uitvlakken en reparaties
+                tot volledig sausklaar stucen van wanden en plafonds.</p>
+
+              <h4>Wat we voor u doen</h4>
+              <ul class="list-check-circle">
+                <li>Uitvlakken, raapwerk en pleisterwerk</li>
+                <li>Sausklaar opleveren en lichte structuur</li>
+                <li>Reparaties na verbouwingen of leidingen</li>
+                <li>Hoekprofielen, naden en kiemwerk netjes afgewerkt</li>
+                <li>Advies over afwerking en schilderwerk</li>
+              </ul>
+
+              <h4>Onze werkwijze</h4>
+              <ul class="list-angle-right">
+                <li>Inspectie en eerlijk advies</li>
+                <li>Duidelijke planning en stofarm werken waar mogelijk</li>
+                <li>Strakke oplevering, klaar voor verf of behang</li>
+              </ul>
+
+              <p>Klaar voor een <strong>vrijblijvende offerte</strong>? Neem contact op. We plannen snel een bezoek in.
+              </p>
+
+              <blockquote class="site-bg-dark text-white author-quote">
+                <h4 class="m-b0">“Mooi stukwerk is strak, vlak en klaar voor de finish.” <i
+                    class="fa fa-quote-right"></i></h4>
+                <div class="p-t15 text-white">
+                  <strong class="site-text-primary">HMD Klusbedrijf</strong>
+                  <span>Stukwerk</span>
+                </div>
+              </blockquote>
+            </div>
+          </div>
+        </div>
+
+        <!-- SIDEBAR -->
+        <div class="col-lg-4 col-md-12">
+          <aside class="side-bar">
+            <div class="empty50"></div>
+            {% include "partials/sidebar-map-widget.html" %}
+            {% include "partials/sidebar-whatsapp-widget.html" %}
+            {% include "partials/sidebar-diensten-ticker.html" %}
+            {% include "partials/sidebar-portfolio.html" %}
+          </aside>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- SECTION CONTENT END -->
+</div>
+{% endblock %}

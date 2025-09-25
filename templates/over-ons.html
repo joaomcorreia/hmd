@@ -1,0 +1,394 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Over Ons | HMD Klusbedrijf{% endblock %}
+
+{% block content %}
+<!-- CONTENT START -->
+
+<!-- INNER PAGE BANNER -->
+<div class="mt-bnr-inr overlay-wraper bg-parallax bg-middle-center" data-stellar-background-ratio="0.5"
+    style="background-image:url('{% static 'img/background/banner-default.jpg' %}')">
+    <div class="overlay-main bg-black opacity-07"></div>
+    <div class="container">
+        <div class="mt-bnr-inr-entry">
+            <div class="banner-title-outer">
+                <div class="banner-title-name">
+                    <h2 class="m-b0">Wij bouwen aan kwaliteit en sterkere gemeenschappen.</h2>
+                </div>
+            </div>
+
+            <!-- BREADCRUMB ROW -->
+            <div>
+                <ul class="mt-breadcrumb breadcrumb-style-2">
+                    <li><a href="{% url 'index' %}">Home</a></li>
+                    <li>Over Ons</li>
+                </ul>
+            </div>
+            <!-- BREADCRUMB ROW END -->
+        </div>
+    </div>
+</div>
+<!-- INNER PAGE BANNER END -->
+
+<!-- ABOUT COMPANY SECTION START -->
+<div class="section-full p-t80 p-b80 bg-white inner-page-padding">
+    <div class="container">
+        <!-- TITLE START -->
+        <div class="section-head">
+            <div class="mt-separator-outer separator-left">
+                <div class="mt-separator">
+                    <h2 class="text-uppercase sep-line-one ">
+                        <span class="font-weight-300 site-text-primary">HMD</span> Klusbedrijf
+                    </h2>
+                </div>
+            </div>
+        </div>
+        <!-- TITLE END -->
+
+        <div class="section-content ">
+            <div class="row">
+                <div class="col-lg-5 col-md-12">
+                    <div class="m-about ">
+                        <div class="owl-carousel about-us-carousel">
+                            <!-- COLUMNS 1 -->
+                            <div class="item">
+                                <div class="ow-img">
+                                    <a href="#/"><img src="{% static 'img/portrait/pic4.jpg' %}" alt=""></a>
+                                </div>
+                            </div>
+                            <!-- COLUMNS 2 -->
+                            <div class="item">
+                                <div class="ow-img">
+                                    <a href="#/"><img src="{% static 'img/portrait/pic5.jpg' %}" alt=""></a>
+                                </div>
+                            </div>
+                            <!-- COLUMNS 3 -->
+                            <div class="item">
+                                <div class="owl-img">
+                                    <a href="#/"><img src="{% static 'img/portrait/pic6.jpg' %}" alt=""></a>
+                                </div>
+                            </div>
+                            <!-- COLUMNS 4 -->
+                            <div class="item">
+                                <div class="ow-img">
+                                    <a href="#/"><img src="{% static 'img/portrait/pic7.jpg' %}" alt=""></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-7 col-md-12">
+                    <div class="m-about-containt text-black">
+                        <div class="m-about-years bg-moving"
+                            style="background-image:url('{% static 'img/background/line.png' %}')">
+                            <span class="site-text-primary large-title">25</span>
+                            <span class="large-title-info">Jaar Ervaring</span>
+                        </div>
+
+                        <h3 class="font-weight-600">Leefkwaliteit verbeteren met een persoonlijke en vakkundige aanpak.
+                        </h3>
+                        <p>Bij HMD Klusbedrijf draait alles om vakmanschap, betrouwbaarheid en oog voor
+                            detail. Al 25 jaar levert oprichter Juma Al Huseyin kwalitatief werk in en rond
+                            Dinteloord — van schilderwerk tot volledige renovaties.</p>
+
+                        <div class="author-info p-t20">
+                            <div class="author-name">
+                                <p>Eigenaar & Klusprofessional</p>
+                            </div>
+                            <div class="clear"></div>
+                            <a href="{% url 'contact' %}" class="site-button btn-effect m-b15"><span>Neem contact
+                                    op</span></a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ABOUT COMPANY SECTION END -->
+
+<!-- OUR SPECIALLIZATION START -->
+<div class="section-full specialization-wrap1 p-t80 p-b50 bg-white bg-repeat square_shape2 inner-page-padding"
+    style="background-image:url('{% static 'img/background/ptn-1.png' %}')">
+    <!-- SECOND SPECIALIZATION SECTION -->
+    <div class="container">
+
+        <!-- TITLE START -->
+        <div class="section-head">
+            <div class="mt-separator-outer separator-left">
+                <div class="mt-separator">
+                    <h2 class="text-uppercase sep-line-one ">
+                        <span class="font-weight-300 site-text-primary">Onze</span> Vakgebieden
+                    </h2>
+                </div>
+            </div>
+            <h3>Specialistische diensten die uw woning of project naar een hoger niveau tillen.</h3>
+        </div>
+        <!-- TITLE END -->
+
+        <!-- SECTION CONTENT START -->
+        <div class="section-content">
+            <div class="row">
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="mt-icon-box-wraper m-b30">
+                        <div class="relative icon-count-2 bg-gray p-a30 p-tb50">
+                            <span class="icon-count-number">5</span>
+                            <div class="icon-md inline-icon m-b15 site-text-primary scale-in-center">
+                                <span class="icon-cell">
+                                    <img src="{% static 'img/icon/paint.png' %}" alt="Schilderwerk">
+                                </span>
+                            </div>
+                            <div class="icon-content">
+                                <h4 class="mt-tilte m-b25">Schilderwerk</h4>
+                                <p>Professionele binnenschilderwerk en buitenschilderwerken met duurzame afwerking.</p>
+                                <a href="{% url 'service-detail' 'schilderwerk' %}" class="site-button-link"
+                                    data-hover="Lees meer">
+                                    Lees meer <i class="fa fa-angle-right arrow-animation"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="mt-icon-box-wraper m-b30">
+                        <div class="relative icon-count-2 bg-gray p-a30 p-tb50">
+                            <span class="icon-count-number">6</span>
+                            <div class="icon-md inline-icon m-b15 site-text-primary scale-in-center">
+                                <span class="icon-cell">
+                                    <img src="{% static 'img/icon/floor.png' %}" alt="Vloeren">
+                                </span>
+                            </div>
+                            <div class="icon-content">
+                                <h4 class="mt-tilte m-b25">Vloeren</h4>
+                                <p>Van laminaat tot tegelvloer — wij zorgen voor een strakke en nette plaatsing.</p>
+                                <a href="{% url 'service-detail' 'vloeren' %}" class="site-button-link"
+                                    data-hover="Lees meer">
+                                    Lees meer <i class="fa fa-angle-right arrow-animation"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="mt-icon-box-wraper m-b30">
+                        <div class="relative icon-count-2 bg-gray p-a30 p-tb50">
+                            <span class="icon-count-number">7</span>
+                            <div class="icon-md inline-icon m-b15 site-text-primary scale-in-center">
+                                <span class="icon-cell">
+                                    <img src="{% static 'img/icon/keuken.png' %}" alt="Keukenrenovatie">
+                                </span>
+                            </div>
+                            <div class="icon-content">
+                                <h4 class="mt-tilte m-b25">keukenrenovatie</h4>
+                                <p>Moderne en functionele keukenoplossingen, volledig afgestemd op uw wensen.</p>
+                                <a href="{% url 'service-detail' 'keukenrenovatie' %}" class="site-button-link"
+                                    data-hover="Lees meer">
+                                    Lees meer <i class="fa fa-angle-right arrow-animation"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="mt-icon-box-wraper m-b30">
+                        <div class="relative icon-count-2 bg-gray p-a30 p-tb50">
+                            <span class="icon-count-number">8</span>
+                            <div class="icon-md inline-icon m-b15 site-text-primary scale-in-center">
+                                <span class="icon-cell">
+                                    <img src="{% static 'img/icon/plastering.png' %}" alt="stukwerk">
+                                </span>
+                            </div>
+                            <div class="icon-content">
+                                <h4 class="mt-tilte m-b25">stukwerk</h4>
+                                <p>Strakke muren en plafonds met vakmanschap gestuct voor een perfect eindresultaat.</p>
+                                <a href="{% url 'service-detail' 'stukwerk' %}" class="site-button-link"
+                                    data-hover="Lees meer">
+                                    Lees meer <i class="fa fa-angle-right arrow-animation"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+<!-- OUR SPECIALLIZATION END -->
+
+<!-- WHY CHOOSE US START -->
+<div class="section-full our-team-4-wrap p-t80 p-b50 bg-white inner-page-padding">
+    <div class="container">
+
+        <!-- TITLE START -->
+        <div class="section-head">
+            <div class="mt-separator-outer separator-center">
+                <div class="mt-separator">
+                    <h2 class="text-uppercase sep-line-one ">
+                        <span class="font-weight-300 site-text-primary">Waarom</span> kiezen voor ons?
+                    </h2>
+                </div>
+            </div>
+        </div>
+        <!-- TITLE END -->
+
+        <!-- BENEFITS START -->
+        <div class="section-content">
+            <div class="row d-flex justify-content-center">
+
+                <div class="col-lg-4 col-md-6 m-b30">
+                    <div class="our-team-1 hover-animation-1">
+                        <div class="profile-image scale-in-center">
+                            <img src="{% static 'img/our-team4/pic1.png' %}" alt="Betrouwbare Service">
+                        </div>
+                        <div class="figcaption">
+                            <h4>Betrouwbare Service</h4>
+                            <h5>Afspraak is afspraak</h5>
+                            <p>We komen op tijd, communiceren duidelijk en zorgen dat alles volgens plan verloopt.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 m-b30">
+                    <div class="our-team-1 hover-animation-1">
+                        <div class="profile-image scale-in-center">
+                            <img src="{% static 'img/our-team4/pic2.png' %}" alt="Vakkundig Werk">
+                        </div>
+                        <div class="figcaption">
+                            <h4>Vakkundig Werk</h4>
+                            <h5>Kwaliteit & Netheid</h5>
+                            <p>Al onze werkzaamheden worden netjes en professioneel uitgevoerd, met oog voor detail.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 m-b30">
+                    <div class="our-team-1 hover-animation-1">
+                        <div class="profile-image scale-in-center">
+                            <img src="{% static 'img/our-team4/pic3.png' %}" alt="Complete Oplossingen">
+                        </div>
+                        <div class="figcaption">
+                            <h4>Complete Oplossingen</h4>
+                            <h5>Van A tot Z geregeld</h5>
+                            <p>Wij nemen u alles uit handen van advies en planning tot uitvoering en nazorg.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+<!-- WHY CHOOSE US END -->
+
+<!-- OUR PROCESS SECTION START -->
+<div class="section-full about-summary-wrap p-t80 p-b50 bg-dark bg-repeat square_shape2 inner-page-padding"
+    style="background-image:url('{% static 'img/background/bg-6.png' %}')">
+    <div class="container">
+        <!-- TITLE START -->
+        <div class="section-head">
+            <div class="mt-separator-outer separator-left">
+                <div class="mt-separator text-white">
+                    <h2 class="text-uppercase sep-line-one ">
+                        <span class="font-weight-300 site-text-primary">Onze</span> Werkwijze
+                    </h2>
+                </div>
+            </div>
+        </div>
+        <!-- TITLE END -->
+
+        <div class="section-content our-story">
+
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="our-story-pic-block">
+                        <div class="mt-media our-story-pic">
+                            <img src="{% static 'img/gallery/portrait/pic4.jpg' %}" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8 col-md-6">
+                    <div class="mt-box our-story-detail bg-moving bg-cover"
+                        style="background-image:url('{% static 'img/background/line.png' %}')">
+                        <h4 class="text-uppercase m-b20">Stap 1</h4>
+                        <h4 class="m-b20">Kennismaking & Advies</h4>
+                        <p>We starten met een persoonlijk gesprek waarin we uw wensen bespreken en advies
+                            geven over de beste aanpak voor uw project.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="our-story-pic-block">
+                        <div class="mt-media our-story-pic">
+                            <img src="{% static 'img/gallery/portrait/pic7.jpg' %}" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8 col-md-6">
+                    <div class="mt-box our-story-detail bg-moving bg-cover"
+                        style="background-image:url('{% static 'img/background/line.png' %}')">
+                        <h4 class="text-uppercase m-b20">Stap 2</h4>
+                        <h4 class="m-b20">Offerte op maat</h4>
+                        <p>U ontvangt een duidelijke, vrijblijvende offerte met transparante prijzen en een
+                            heldere planning van de werkzaamheden.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="our-story-pic-block">
+                        <div class="mt-media our-story-pic">
+                            <img src="{% static 'img/gallery/portrait/pic6.jpg' %}" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8 col-md-6">
+                    <div class="mt-box our-story-detail bg-moving bg-cover"
+                        style="background-image:url('{% static 'img/background/line.png' %}')">
+                        <h4 class="text-uppercase m-b20">Stap 3</h4>
+                        <h4 class="m-b20">Uitvoering van het werk</h4>
+                        <p>Onze vakmensen gaan aan de slag volgens afspraak. We houden u op de hoogte en
+                            zorgen voor een vlotte voortgang van het project.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="our-story-pic-block">
+                        <div class="mt-media our-story-pic">
+                            <img src="{% static 'img/gallery/portrait/pic5.jpg' %}" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8 col-md-6">
+                    <div class="mt-box our-story-detail bg-moving bg-cover"
+                        style="background-image:url('{% static 'img/background/line.png' %}')">
+                        <h4 class="text-uppercase m-b20">Stap 4</h4>
+                        <h4 class="m-b20">Oplevering & Tevredenheid</h4>
+                        <p>Na afronding zorgen we voor een nette oplevering. Uw tevredenheid staat centraal
+                            — pas dan is het project echt klaar.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- OUR PROCESS SECTION END -->
+
+</div>
+<!-- CONTENT END -->
+{% endblock %}

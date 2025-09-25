@@ -1,0 +1,156 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}{{ svc.name }} | HMD Klusbedrijf{% endblock %}
+
+{% block extra_head %}
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Home","item":"{{ request.scheme }}://{{ request.get_host }}/"},
+    {"@type":"ListItem","position":2,"name":"Diensten","item":"{{ request.scheme }}://{{ request.get_host }}/diensten/"},
+    {"@type":"ListItem","position":3,"name":"{{ svc.name }}","item":"{{ request.scheme }}://{{ request.get_host }}{{ request.path }}"}
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Service",
+  "name":"{{ svc.name }}",
+  "description":"{{ svc.desc|escapejs }}",
+  "serviceType":"{{ svc.name }}",
+  "areaServed":"Dinteloord en omgeving",
+  "url":"{{ request.scheme }}://{{ request.get_host }}{{ request.path }}",
+  "provider":{
+    "@type":"LocalBusiness",
+    "name":"HMD Klusbedrijf",
+    "image":"{{ request.scheme }}://{{ request.get_host }}{% static 'img/og-default.jpg' %}",
+    "telephone":"+31 6 87111289",
+    "address":{
+      "@type":"PostalAddress",
+      "streetAddress":"Witte de Withstraat 28",
+      "postalCode":"4671 AP",
+      "addressLocality":"Dinteloord",
+      "addressCountry":"NL"
+    }
+  }
+}
+</script>
+{% endblock %}
+
+{% block content %}
+<div class="page-wraper">
+    <div class="page-content">
+
+        <div class="mt-bnr-inr overlay-wraper bg-parallax bg-bottom-center" data-stellar-background-ratio="0.5"
+            style="background-image:url('{% static 'img/background/banner-default.jpg' %}')">
+            <div class="overlay-main bg-black opacity-07"></div>
+            <div class="container">
+                <div class="mt-bnr-inr-entry">
+                    <div class="banner-title-outer">
+                        <div class="banner-title-name">
+                            <h2 class="m-b0">Schilderwerk</h2>
+                            <p class="breadcrumb-white">Binnen en buiten – ook in Roosendaal</p>
+                        </div>
+                    </div>
+
+                    <div>
+                        <ul class="mt-breadcrumb breadcrumb-style-2">
+                            <li><a href="{% url 'index' %}">Home</a></li>
+                            <li><a href="{% url 'diensten' %}">Diensten</a></li>
+                            <li>Schilderwerk</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="section-full p-tb80 inner-page-padding">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-8 col-md-12">
+                        <div class="blog-post date-style-3 blog-detail text-black">
+
+                            <div class="mt-post-media clearfix m-b30">
+                                <ul class="grid-post">
+                                    <li>
+                                        <div class="portfolio-item">
+                                            <img class="img-responsive"
+                                                src="{% static 'img/services/schilderwerk-01.jpg' %}"
+                                                alt="Schilderwerk in Dinteloord: binnenschilderwerk en buitenschilder door HMD Klusbedrijf">
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="mt-post-title">
+                                <h3 class="post-title">Strak schilderwerk, duurzaam resultaat</h3>
+                                <p>Wij verzorgen <strong>binnenschilderwerk en buitenschilderwerk in Dinteloord</strong>
+                                    en omgeving, waaronder <strong>Roosendaal</strong>. Van voorbereiding tot laatste
+                                    laag: netjes, stofarm en met A-merk verven.</p>
+                            </div>
+
+                            <div class="mt-post-text">
+                                <h4>Onze schilderdiensten</h4>
+                                <ul class="list-check-circle">
+                                    <li><strong>Binnenschilderwerk</strong>: wanden, plafonds, kozijnen, deuren, trap
+                                    </li>
+                                    <li><strong>Buitenschilderwerk</strong>: kozijnen, boeidelen, gevelhout,
+                                        schuur/tuinhuis</li>
+                                    <li><strong>Houtrotreparatie</strong> en deelvervangingen</li>
+                                    <li><strong>Schuren, gronden, lakken/beitsen</strong> volgens systeemverf</li>
+                                    <li><strong>Latex spuitwerk</strong> voor strakke grote oppervlakken</li>
+                                    <li><strong>Kitwerk</strong> rondom aansluitingen en glaslatten</li>
+                                </ul>
+
+                                <h4>Werkwijze</h4>
+                                <ul class="list-angle-right">
+                                    <li>Inspectie en advies over kleuren en glansgraad</li>
+                                    <li>Voorbehandeling: reinigen, schuren, plamuren en primer</li>
+                                    <li>Afwerking met geschikte binnen/buitenlak of muurverf</li>
+                                    <li>Afplakken, bescherming en schoon opleveren</li>
+                                </ul>
+
+                                <p>Onderhoud aan buitenschilderwerk voorkomt schade. We adviseren een periodieke
+                                    controle afhankelijk van blootstelling aan zon en regen.</p>
+
+                                <blockquote class="site-bg-dark text-white author-quote">
+                                    <h4 class="m-b0">“Strak schilderwerk begint met voorbereiding en eindigt met
+                                        details.” <i class="fa fa-quote-right"></i></h4>
+                                    <div class="p-t15 text-white">
+                                        <strong class="site-text-primary">HMD Klusbedrijf</strong>
+                                        <span>Schilderwerk</span>
+                                    </div>
+                                </blockquote>
+
+                                <p>Direct een ruimte laten opfrissen of een volledige buitenzijde aanpakken? Vraag een
+                                    <strong>vrijblijvende offerte</strong> aan. We plannen snel in.
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-12">
+                        <aside class="side-bar">
+                            <div class="empty50"></div>
+                            {% include "partials/sidebar-map-widget.html" %}
+                            {% include "partials/sidebar-whatsapp-widget.html" %}
+                            {% include "partials/sidebar-diensten-ticker.html" %}
+                            {% include "partials/sidebar-portfolio.html" %}
+                        </aside>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,102 @@
+{% extends "admin/index.html" %}
+
+{% block content %}
+<div class="module">
+    <h2>PAGES</h2>
+    <ul class="admin-links">
+        <li>Home</li>
+        <li>Over Ons</li>
+        <li>Diensten</li>
+        <li>Portfolio</li>
+        <li>Contact</li>
+    </ul>
+
+    <div class="module">
+        <h2>SUBSCRIPTIONS</h2>
+        <ul class="actionlist">
+            <li><a href="{% url 'admin-tool' 'overview' %}">Overview</a></li>
+            <li><a href="{% url 'admin-tool' 'domain-name' %}">Domain Name</a></li>
+            <li><a href="{% url 'admin-tool' 'hosting' %}">Hosting</a></li>
+            <li><a href="{% url 'admin-tool' 'website' %}">Website</a></li>
+            <li><a href="{% url 'admin-tool' 'seo' %}">SEO</a></li>
+            <li><a href="{% url 'admin-tool' 'social-networks' %}">Social Networks</a></li>
+        </ul>
+    </div>
+
+    <div class="module">
+        <h2>EDIT CONTENT</h2>
+        <ul class="admin-links">
+            <li><a href="{% url 'admin:core_slide_changelist' %}">Slides beheren</a></li>
+            <li><a href="{% url 'admin:core_portfolioitem_changelist' %}">Portfolio beheren</a></li>
+        </ul>
+    </div>
+
+    {{ block.super }}
+    {% endblock %}
+
+    {% block extrahead %}
+    {{ block.super }}
+    <style>
+        .admin-links {
+            list-style: none;
+            margin: 0;
+            padding: 0
+        }
+
+        .admin-links>li {
+            margin: 6px 0
+        }
+
+        .admin-links a {
+            text-decoration: none
+        }
+
+        .admin-links .nested {
+            display: none;
+            margin: 6px 0 0 16px;
+            padding: 0;
+            list-style: none
+        }
+
+        .admin-links .nested li {
+            margin: 4px 0
+        }
+
+        .admin-links .accordion>a {
+            display: inline-flex;
+            gap: 6px;
+            align-items: center
+        }
+
+        .admin-links .accordion .caret {
+            transition: transform .15s ease-in-out
+        }
+
+        .admin-links .accordion>a[aria-expanded="true"] .caret {
+            transform: rotate(90deg)
+        }
+
+        .subs {
+            list-style: none;
+            margin: 0;
+            padding: 0
+        }
+
+        .subs li {
+            margin: 6px 0
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const toggle = document.getElementById('dienstenToggle');
+            const list = document.getElementById('dienstenList');
+            if (!toggle || !list) return;
+            const open = () => { list.style.display = 'block'; toggle.setAttribute('aria-expanded', 'true'); };
+            const close = () => { list.style.display = 'none'; toggle.setAttribute('aria-expanded', 'false'); };
+            const isOpen = () => toggle.getAttribute('aria-expanded') === 'true';
+            toggle.addEventListener('click', function (e) { e.preventDefault(); isOpen() ? close() : open(); });
+        });
+    </script>
+    {% endblock %}
+
+    {% block sidebar %}{% endblock %}

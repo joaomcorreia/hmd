@@ -1,0 +1,47 @@
+{% extends "admin/base_site.html" %}
+{% load static %}
+{% block content %}
+<h1>Portfolio bewerken</h1>
+
+<div class="module">
+    <h2>Preview</h2>
+    <iframe src="{{ preview_url }}" style="width:100%;height:420px;border:1px solid #ccc;border-radius:6px;"></iframe>
+</div>
+
+<form method="post" enctype="multipart/form-data" class="module">
+    {% csrf_token %}
+    <h2>Nieuwe foto’s toevoegen</h2>
+    <p>Upload één of meerdere afbeeldingen tegelijk. Titel is optioneel; bestandsnaam wordt gebruikt als titel als leeg.
+    </p>
+    <div style="display:grid;grid-template-columns:repeat(4,minmax(180px,1fr));gap:12px;align-items:end;">
+        <div>{{ add_form.title.label_tag }} {{ add_form.title }}</div>
+        <div>{{ add_form.category.label_tag }} {{ add_form.category }}</div>
+        <div>{{ add_form.images.label_tag }} {{ add_form.images }}</div>
+        <div>{{ add_form.is_active.label_tag }} {{ add_form.is_active }}</div>
+    </div>
+    <div style="margin-top:12px">
+        <button type="submit" class="default">Toevoegen</button>
+        <a class="button" href="{{ add_url }}">Naar geavanceerd toevoegen</a>
+    </div>
+</form>
+
+<div class="module">
+    <h2>Bestaande items</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;">
+        {% for it in items %}
+        <div style="border:1px solid #ddd;border-radius:6px;padding:8px;">
+            {% if it.image %}<img src="{{ it.image.url }}" alt="{{ it.title }}"
+                style="width:100%;height:160px;object-fit:cover;border-radius:4px;">{% endif %}
+            <div style="margin-top:6px;"><strong>{{ it.title|default:"&nbsp;" }}</strong></div>
+            <div style="font-size:12px;color:#666;">{{ it.get_category_display }}{% if not it.is_active %} · inactief{%
+                endif %}</div>
+            <div style="margin-top:8px;">
+                <a class="button" href="{% url change_url_name it.pk %}">Bewerken</a>
+            </div>
+        </div>
+        {% empty %}
+        <p>Geen items.</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% load static %}
+<meta name="description"
+    content="{{ meta.description|default:'Betrouwbaar klusbedrijf voor renovatie, onderhoud en reparaties in Dinteloord en omgeving.' }}">
+<link rel="canonical"
+    href="{{ meta.canonical|default:request.scheme|add:'://'|add:request.get_host|add:request.path }}">
+
+<meta property="og:type" content="{{ meta.type|default:'website' }}">
+<meta property="og:site_name" content="HMD Klusbedrijf">
+<meta property="og:title" content="{{ meta.title|default:'HMD Klusbedrijf | Dinteloord' }}">
+<meta property="og:description"
+    content="{{ meta.description|default:'Betrouwbaar klusbedrijf voor renovatie, onderhoud en reparaties in Dinteloord en omgeving.' }}">
+<meta property="og:url"
+    content="{{ meta.canonical|default:request.scheme|add:'://'|add:request.get_host|add:request.path }}">
+
+{% if meta.image_abs %}
+<meta property="og:image" content="{{ meta.image_abs }}">
+{% else %}
+<meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}{% static 'img/og-default.jpg' %}">
+{% endif %}

@@ -1,0 +1,570 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Diensten | HMD Klusbedrijf{% endblock %}
+
+{% block extra_head %}
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Home","item":"{{ request.scheme }}://{{ request.get_host }}/"},
+    {"@type":"ListItem","position":2,"name":"Diensten","item":"{{ request.scheme }}://{{ request.get_host }}{{ request.path }}"}
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"ItemList",
+  "name":"Diensten",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"url":"{{ request.scheme }}://{{ request.get_host }}{{ request.path }}#kluswerk","name":"Klus en Reparatiewerk"},
+    {"@type":"ListItem","position":2,"url":"{{ request.scheme }}://{{ request.get_host }}{{ request.path }}#renovatie","name":"Renovatie & Buitenwerk"},
+    {"@type":"ListItem","position":3,"url":"{{ request.scheme }}://{{ request.get_host }}{{ request.path }}#badkamer","name":"Badkamerrenovatie"},
+    {"@type":"ListItem","position":4,"url":"{{ request.scheme }}://{{ request.get_host }}{{ request.path }}#timmerwerk","name":"Timmerwerk & Interieur"},
+    {"@type":"ListItem","position":5,"url":"{{ request.scheme }}://{{ request.get_host }}{{ request.path }}#elektra","name":"Elektrisch Werk"},
+    {"@type":"ListItem","position":6,"url":"{{ request.scheme }}://{{ request.get_host }}{{ request.path }}#loodgieterij","name":"Loodgieterij"}
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+<div class="page-content">
+
+    <!-- INNER PAGE BANNER -->
+    <div class="mt-bnr-inr overlay-wraper bg-parallax bg-middle-center" data-stellar-background-ratio="0.5"
+        style="background-image:url('{% static 'img/background/banner-default.jpg' %}')">
+        <div class="overlay-main bg-black opacity-07"></div>
+        <div class="container">
+            <div class="mt-bnr-inr-entry">
+                <div class="banner-title-outer">
+                    <div class="banner-title-name">
+                        <h2 class="m-b0">Onze Diensten</h2>
+                    </div>
+                </div>
+                <div>
+                    <ul class="mt-breadcrumb breadcrumb-style-2">
+                        <li><a href="{% url 'index' %}">Home</a></li>
+                        <li>Diensten</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- INNER PAGE BANNER END -->
+
+    <!-- ABOUT COMPANY SECTION START -->
+    <div class="section-full p-t80 p-b50 bg-white">
+        <div class="container">
+            <div class="section-content">
+                <div class="m-service-containt text-black">
+                    <div class="row">
+                        <div class="col-lg-5 col-md-12">
+                            <div class="service-about-left">
+                                <div class="mt-media">
+                                    <img src="{% static 'img/s-1.png' %}" alt="Over Ons">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-7 col-md-12">
+                            <div class="service-about-right m-b30">
+                                <h3 class="m-t0">Trots op ons werk – kwaliteit staat altijd voorop.</h3>
+                                <p>Bij HMD Klusbedrijf leveren we vakmanschap waarop u kunt vertrouwen. Of het nu gaat
+                                    om
+                                    schilderwerk, stukwerk, renovaties of kleine verbouwingen, elk project voeren we uit
+                                    met
+                                    aandacht voor detail en duurzaamheid. We werken binnen een straal van 50 km met
+                                    duidelijke
+                                    communicatie en nette oplevering.</p>
+                                <div class="call-for-quote-outer">
+                                    <div class="call-quote">
+                                        <span>Bel voor een offerte:</span>
+                                        <h4>+31 6 87111289</h4>
+                                    </div>
+                                    <div class="call-estimate site-bg-dark">
+                                        <a href="{% url 'contact' %}" class="site-button-secondry btn-effect">Neem
+                                            contact op</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> <!-- row -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ABOUT COMPANY SECTION END -->
+
+    <!-- OUR SPECIALLIZATION START -->
+    <div class="section-full p-t80 p-b50 bg-dark mobile-page-padding our-product3-wrap"
+        style="background-image:url('{% static " img/background/bg-6.png" %}')">
+        <div class="container">
+            <div class="section-content">
+                <div class="section-head m-b50 text-white text-center">
+                    <h3 class="m-t0">Wij specialiseren ons in betrouwbare renovatie en afwerking.</h3>
+                    <p>Van een kleine klus tot een volledige renovatie. Vakmanschap, duidelijke afspraken en een nette
+                        afwerking.</p>
+                </div>
+
+                <div class="row d-flex justify-content-center">
+                    <div class="col-lg-4 col-md-6 m-b30">
+                        <div class="image-effect-two hover-shadow">
+                            <img src="{% static 'img/diensten/1.jpg' %}" alt="Schilderwerk">
+                            <div class="figcaption site-bg-dark">
+                                <h2 id="schilderwerk">Schilderwerk</h2>
+                                <p>Binnen- en buitenschilderwerk met oog voor detail en duurzaamheid.</p>
+                                <a href="{% url 'service-detail' 'schilderwerk' %}">Meer lezen<i
+                                        class="link-plus site-bg-primary"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 m-b30">
+                        <div class="image-effect-two hover-shadow">
+                            <img src="{% static 'img/diensten/2.jpg' %}" alt="Stukwerk">
+                            <div class="figcaption site-bg-dark">
+                                <h2 id="stukwerk">Stukwerk</h2>
+                                <p>Strak stukwerk voor muren en plafonds – perfect afgewerkt en sausklaar.</p>
+                                <a href="{% url 'service-detail' 'stukwerk' %}">Meer lezen<i
+                                        class="link-plus site-bg-primary"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 m-b30">
+                        <div class="image-effect-two hover-shadow">
+                            <img src="{% static 'img/diensten/3.jpg' %}" alt="Renovatie">
+                            <div class="figcaption site-bg-dark">
+                                <h2 id="renovatie">Renovatie</h2>
+                                <p>Complete renovaties van woning of kamer, volledig op maat uitgevoerd.</p>
+                                <a href="{% url 'service-detail' 'renovatie-en-verbouw' %}">Meer lezen<i
+                                        class="link-plus site-bg-primary"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- row -->
+            </div>
+        </div>
+    </div>
+    <!-- OUR SPECIALLIZATION END -->
+
+    <!-- ONZE DIENSTEN START -->
+    <div class="section-full our-service2-wrap p-t80 p-b50 bg-white mobile-page-padding"
+        style="background-image:url('{% static " img/background/bg-5.png" %}')">
+        <div class="container">
+
+            <!-- TITEL START -->
+            <div class="section-head">
+                <div class="mt-separator-outer separator-center">
+                    <div class="mt-separator">
+                        <h2 class="text-uppercase sep-line-one">
+                            <span class="font-weight-300 site-text-primary">Onze</span> Diensten
+                        </h2>
+                    </div>
+                </div>
+            </div>
+            <!-- TITEL END -->
+
+            <!-- CARDS START -->
+            <div class="section-content">
+                <div class="row">
+
+                    <!-- Service 1 -->
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="mt-icon-box-wraper p-a30 center m-b30 box-shadow bg-white">
+                            <div class="mt-icon-box-sm inline-icon site-text-primary m-b20 radius site-bg-primary scale-in-center bg-moving"
+                                style="background-image:url('{% static " img/background/line.png" %}')">
+                                <span class="icon-cell text-secondry"><i class="flaticon-city"></i></span>
+                            </div>
+                            <div class="icon-content">
+                                <h4 class="mt-tilte text-uppercase font-weight-600 m-b20">Kluswerk Algemeen</h4>
+                                <p>Allround kluswerk voor woning, tuin, renovatie en kleine verbouwingen.</p>
+                                <a href="{% url 'service-detail' 'kluswerk-algemeen' %}" class="site-button-link"
+                                    data-hover="Lees Meer">
+                                    Lees Meer <i class="fa fa-angle-right arrow-animation"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Service 2 -->
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="mt-icon-box-wraper p-a30 center m-b30 box-shadow bg-white">
+                            <div class="mt-icon-box-sm inline-icon site-text-primary m-b20 radius site-bg-primary scale-in-center bg-moving"
+                                style="background-image:url('{% static " img/background/line.png" %}')">
+                                <span class="icon-cell text-secondry"><i class="flaticon-paint"></i></span>
+                            </div>
+                            <div class="icon-content">
+                                <h4 class="mt-tilte text-uppercase font-weight-600 m-b20">Klus en Reparatiewerk</h4>
+                                <p>Reparaties en kleine klussen snel, betrouwbaar en professioneel uitgevoerd.</p>
+                                <a href="{% url 'service-detail' 'klus-en-reparatiewerk' %}" class="site-button-link"
+                                    data-hover="Lees Meer">
+                                    Lees Meer <i class="fa fa-angle-right arrow-animation"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Service 3 -->
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="mt-icon-box-wraper p-a30 center m-b30 box-shadow bg-white">
+                            <div class="mt-icon-box-sm inline-icon site-text-primary m-b20 radius site-bg-primary scale-in-center bg-moving"
+                                style="background-image:url('{% static " img/background/line.png" %}')">
+                                <span class="icon-cell text-secondry"><i class="flaticon-crane"></i></span>
+                            </div>
+                            <div class="icon-content">
+                                <h4 class="mt-tilte text-uppercase font-weight-600 m-b20">Timmerwerk</h4>
+                                <p>Algemene constructiewerken en aanbouw, ruwbouw en afwerking.</p>
+                                <a href="{% url 'service-detail' 'timmerwerk' %}" class="site-button-link"
+                                    data-hover="Lees Meer">
+                                    Lees Meer <i class="fa fa-angle-right arrow-animation"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Service 4 -->
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="mt-icon-box-wraper p-a30 center m-b30 box-shadow bg-white">
+                            <div class="mt-icon-box-sm inline-icon site-text-primary m-b20 radius site-bg-primary scale-in-center bg-moving"
+                                style="background-image:url('{% static " img/background/line.png" %}')">
+                                <span class="icon-cell text-secondry"><i class="flaticon-decorating"></i></span>
+                            </div>
+                            <div class="icon-content">
+                                <h4 class="mt-tilte text-uppercase font-weight-600 m-b20">Elektrisch Werk</h4>
+                                <p>Installaties, verlichting en storingen veilig en vakkundig opgelost.</p>
+                                <a href="{% url 'service-detail' 'elektrisch-werk' %}" class="site-button-link"
+                                    data-hover="Lees Meer">
+                                    Lees Meer <i class="fa fa-angle-right arrow-animation"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Service 5 -->
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="mt-icon-box-wraper p-a30 center m-b30 box-shadow bg-white">
+                            <div class="mt-icon-box-sm inline-icon site-text-primary m-b20 radius site-bg-primary scale-in-center bg-moving"
+                                style="background-image:url('{% static " img/background/line.png" %}')">
+                                <span class="icon-cell text-secondry"><i class="flaticon-chart"></i></span>
+                            </div>
+                            <div class="icon-content">
+                                <h4 class="mt-tilte text-uppercase font-weight-600 m-b20">Loodgieterij</h4>
+                                <p>Lekkages, afvoer, kranen en sanitair. Snel en betrouwbaar.</p>
+                                <a href="{% url 'service-detail' 'loodgieterij' %}" class="site-button-link"
+                                    data-hover="Lees Meer">
+                                    Lees Meer <i class="fa fa-angle-right arrow-animation"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Service 6 -->
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="mt-icon-box-wraper p-a30 center m-b30 box-shadow bg-white">
+                            <div class="mt-icon-box-sm inline-icon site-text-primary m-b20 radius site-bg-primary scale-in-center bg-moving"
+                                style="background-image:url('{% static " img/background/line.png" %}')">
+                                <span class="icon-cell text-secondry"><i class="flaticon-sketch"></i></span>
+                            </div>
+                            <div class="icon-content">
+                                <h4 class="mt-tilte text-uppercase font-weight-600 m-b20">Buitenwerk</h4>
+                                <p>Tuinonderhoud, schuttingen, bestrating en schilderwerk voor buiten.</p>
+                                <a href="{% url 'service-detail' 'buitenwerk' %}" class="site-button-link"
+                                    data-hover="Lees Meer">
+                                    Lees Meer <i class="fa fa-angle-right arrow-animation"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Service 7 -->
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="mt-icon-box-wraper p-a30 center m-b30 box-shadow bg-white">
+                            <div class="mt-icon-box-sm inline-icon site-text-primary m-b20 radius site-bg-primary scale-in-center bg-moving"
+                                style="background-image:url('{% static " img/background/line.png" %}')">
+                                <span class="icon-cell text-secondry"><i class="flaticon-builder"></i></span>
+                            </div>
+                            <div class="icon-content">
+                                <h4 class="mt-tilte text-uppercase font-weight-600 m-b20">Algemene Klusdienst</h4>
+                                <p>Kleine of grotere klussen in en om het huis, altijd netjes uitgevoerd.</p>
+                                <a href="{% url 'service-detail' 'algemene-klusdienst' %}" class="site-button-link"
+                                    data-hover="Lees Meer">
+                                    Lees Meer <i class="fa fa-angle-right arrow-animation"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Service 8 -->
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="mt-icon-box-wraper p-a30 center m-b30 box-shadow bg-white">
+                            <div class="mt-icon-box-sm inline-icon site-text-primary m-b20 radius site-bg-primary scale-in-center bg-moving"
+                                style="background-image:url('{% static " img/background/line.png" %}')">
+                                <span class="icon-cell text-secondry"><i class="flaticon-drill"></i></span>
+                            </div>
+                            <div class="icon-content">
+                                <h4 class="mt-tilte text-uppercase font-weight-600 m-b20">Onderhoud en Reiniging</h4>
+                                <p>Grondige reiniging en periodiek onderhoud voor huis en tuin.</p>
+                                <a href="{% url 'service-detail' 'onderhoud-en-reiniging' %}" class="site-button-link"
+                                    data-hover="Lees Meer">
+                                    Lees Meer <i class="fa fa-angle-right arrow-animation"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- CARDS END -->
+        </div>
+    </div>
+    <!-- ONZE DIENSTEN EINDE -->
+
+    <!-- ABOUT COMPANY SECTION START -->
+    <div class="section-full lets-help-wrap p-t80 p-b50 bg-gray bg-no-repeat bg-bottom-right mobile-page-padding"
+        style="background-image:url('{% static " img/background/bg-4.png" %}')">
+        <div class="container">
+            <div class="section-content ">
+                <div class="row">
+                    <div class="col-lg-7 col-md-12 m-b30">
+                        <div class="brochur site-bg-dark p-a20">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="p-a30 site-bg-primary bg-bottom-right brochur-content"
+                                        style="background-image:url('{% static " img/background/bg-site.png" %}')">
+                                        <div class="text-black">
+                                            <h4 class="mt-tilte m-t0">Onze Projecten</h4>
+                                            <p>Bekijk enkele van onze recente schilder- en stukwerkprojecten en ontdek
+                                                hoe wij kwaliteit leveren.</p>
+                                            <a href="{% url 'portfolio' %}"
+                                                class="site-button-secondry btn-half"><span>Bekijk portfolio</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="text-white p-r15">
+                                        <h4 class="mt-tilte">Kunnen wij u helpen?</h4>
+                                        <p>Wij zijn gespecialiseerd in schilderwerk, strak stukwerk en complete
+                                            renovatieprojecten binnen 50 km.</p>
+                                        <a href="{% url 'contact' %}" class="site-button btn-effect">Neem contact op</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-5 col-md-12 m-b30">
+                        <div class="our-exp">
+                            <div class="mt-box">
+                                <h3 class="m-t0"><span class="font-weight-100">Gespecialiseerd in</span><span
+                                        class="site-text-primary"> vakmanschap</span> voor elk project</h3>
+                            </div>
+
+                            <span class="progressText text-black"><b>Stukwerk</b></span>
+                            <div class="progress m-b30 m-t10">
+                                <div class="progress-bar site-bg-primary progress-bar-striped progress-bar-animated text-black"
+                                    role="progressbar" style="width: 90%;" aria-valuenow="90" aria-valuemin="0"
+                                    aria-valuemax="100">
+                                    <span>90%</span>
+                                </div>
+                            </div>
+
+                            <span class="progressText text-black"><b>Schilderwerk</b></span>
+                            <div class="progress m-b30 m-t10">
+                                <div class="progress-bar site-bg-primary progress-bar-striped progress-bar-animated text-black"
+                                    role="progressbar" style="width: 85%;" aria-valuenow="85" aria-valuemin="0"
+                                    aria-valuemax="100">
+                                    <span>85%</span>
+                                </div>
+                            </div>
+
+                            <span class="progressText text-black"><b>Renovatie</b></span>
+                            <div class="progress m-b30 m-t10">
+                                <div class="progress-bar site-bg-primary progress-bar-striped progress-bar-animated text-black"
+                                    role="progressbar" style="width: 75%;" aria-valuenow="75" aria-valuemin="0"
+                                    aria-valuemax="100">
+                                    <span>75%</span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ABOUT COMPANY SECTION END -->
+
+    <!-- FAQ START -->
+    <div class="section-full some-faq-wrap p-t80 p-b50 bg-white inner-page-padding">
+        <div class="container">
+            <div class="section-content">
+                <div class="row">
+                    <div class="col-lg-6 col-md-12">
+
+                        <!-- TITLE START -->
+                        <div class="section-head">
+                            <div class="mt-separator-outer separator-left">
+                                <div class="mt-separator">
+                                    <h2 class="text-uppercase sep-line-one ">
+                                        <span class="font-weight-300 site-text-primary">Veelgestelde</span> Vragen
+                                    </h2>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- TITLE END -->
+
+                        <div class="section-content p-b30">
+                            <div class="mt-accordion acc-bg-gray" id="accordionExample">
+
+                                <!-- Vraag 1 -->
+                                <div class="acod-head mt-panel">
+                                    <h6 class="accordion-header acod-title" id="headingOne-1">
+                                        <a href="javascript:;" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                                            aria-expanded="true" aria-controls="collapseOne">
+                                            Werken jullie ook buiten Dinteloord?
+                                            <span class="indicator"><i class="fa fa-plus"></i></span>
+                                        </a>
+                                    </h6>
+                                    <div id="collapseOne" class="accordion-collapse collapse show"
+                                        aria-labelledby="headingOne-1" data-bs-parent="#accordionExample">
+                                        <div class="acod-body">
+                                            <div class="acod-content p-tb15">
+                                                Ja, wij werken in Dinteloord en omstreken, tot ongeveer 50 km afstand.
+                                                Twijfelt u? Neem contact met ons op.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Vraag 2 -->
+                                <div class="acod-head mt-panel">
+                                    <h6 class="accordion-header acod-title" id="headingTwo-2">
+                                        <a href="javascript:;" data-bs-toggle="collapse" data-bs-target="#collapseTwo"
+                                            aria-expanded="false" aria-controls="collapseTwo">
+                                            Moet ik zelf materiaal aanschaffen?
+                                            <span class="indicator"><i class="fa fa-plus"></i></span>
+                                        </a>
+                                    </h6>
+                                    <div id="collapseTwo" class="accordion-collapse collapse"
+                                        aria-labelledby="headingTwo-2" data-bs-parent="#accordionExample">
+                                        <div class="acod-body">
+                                            <div class="acod-content p-tb15">
+                                                Nee, wij verzorgen materialen. We bespreken vooraf type verf en
+                                                afwerking.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Vraag 3 -->
+                                <div class="acod-head mt-panel">
+                                    <h6 class="accordion-header acod-title" id="headingThree-3">
+                                        <a href="javascript:;" data-bs-toggle="collapse" data-bs-target="#collapseThree"
+                                            aria-expanded="false" aria-controls="collapseThree">
+                                            Doen jullie ook kleine klussen?
+                                            <span class="indicator"><i class="fa fa-plus"></i></span>
+                                        </a>
+                                    </h6>
+                                    <div id="collapseThree" class="accordion-collapse collapse"
+                                        aria-labelledby="headingThree-3" data-bs-parent="#accordionExample">
+                                        <div class="acod-body">
+                                            <div class="acod-content p-tb15">
+                                                Ja. Eén muur verven of klein stukwerk herstellen kan ook.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Vraag 4 -->
+                                <div class="acod-head mt-panel">
+                                    <h6 class="accordion-header acod-title" id="headingFour-4">
+                                        <a href="javascript:;" data-bs-toggle="collapse" data-bs-target="#collapseFour"
+                                            aria-expanded="false" aria-controls="collapseFour">
+                                            Hoe snel kunnen jullie beginnen?
+                                            <span class="indicator"><i class="fa fa-plus"></i></span>
+                                        </a>
+                                    </h6>
+                                    <div id="collapseFour" class="accordion-collapse collapse"
+                                        aria-labelledby="headingFour-4" data-bs-parent="#accordionExample">
+                                        <div class="acod-body">
+                                            <div class="acod-content p-tb15">
+                                                Afhankelijk van planning. Neem contact op voor beschikbaarheid.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-lg-6 col-md-12">
+                        <!-- TITLE START -->
+                        <div class="section-head">
+                            <div class="mt-separator-outer separator-left">
+                                <div class="mt-separator">
+                                    <h2 class="text-uppercase sep-line-one ">
+                                        <span class="font-weight-300 site-text-primary">Onze</span> Oplossing
+                                    </h2>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- TITLE END -->
+
+                        <div class="row">
+                            <!-- Kaart 1 -->
+                            <div class="col-lg-6 col-md-6">
+                                <div class="mt-icon-box-wraper p-a25 m-b30 onhover-box-shadow bg-gray center">
+                                    <div
+                                        class="mt-icon-box-sm inline-icon site-text-primary m-b20 radius bg-secondry scale-in-center">
+                                        <span class="icon-cell site-text-primary"><i class="flaticon-sketch"></i></span>
+                                    </div>
+                                    <div class="icon-content text-black">
+                                        <h4 class="mt-tilte text-uppercase font-weight-600 m-b20">Persoonlijk Advies
+                                        </h4>
+                                        <p>We denken vrijblijvend mee op locatie over de juiste oplossing.</p>
+                                        <a href="{% url 'contact' %}" class="site-button-link" data-hover="Meer info">
+                                            Meer info <i class="fa fa-angle-right arrow-animation"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Kaart 2 -->
+                            <div class="col-lg-6 col-md-6">
+                                <div class="mt-icon-box-wraper p-a25 m-b30 onhover-box-shadow site-bg-dark center">
+                                    <div
+                                        class="mt-icon-box-sm inline-icon site-text-primary m-b20 radius bg-secondry scale-in-center">
+                                        <span class="icon-cell site-text-primary"><i class="flaticon-ui"></i></span>
+                                    </div>
+                                    <div class="icon-content text-white">
+                                        <h4 class="mt-tilte text-uppercase font-weight-600 m-b20">Kwaliteitsgarantie
+                                        </h4>
+                                        <p>Perfecte afwerking en tevreden klanten. Altijd oog voor detail.</p>
+                                        <a href="{% url 'contact' %}" class="site-button-link yellow"
+                                            data-hover="Meer info">
+                                            Meer info <i class="fa fa-angle-right arrow-animation"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div> <!-- col -->
+                </div> <!-- row -->
+            </div> <!-- section-content -->
+        </div> <!-- container -->
+    </div>
+    <!-- FAQ END -->
+
+    <button class="scroltop"><span class="fa fa-angle-up  relative" id="btn-vibrate"></span></button>
+
+</div> <!-- page-content -->
+{% endblock %}

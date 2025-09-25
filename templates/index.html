@@ -1,0 +1,429 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Home | HMD Klusbedrijf{% endblock %}
+{% block extra_head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HomeAndConstructionBusiness",
+  "name": "HMD Klusbedrijf",
+  "image": "{{ request.scheme }}://{{ request.get_host }}{% static 'img/og-default.jpg' %}",
+  "url": "{{ request.scheme }}://{{ request.get_host }}{{ request.path }}",
+  "telephone": "+31 6 87111289",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Witte de Withstraat 28",
+    "postalCode": "4671 AP",
+    "addressLocality": "Dinteloord",
+    "addressCountry": "NL"
+  },
+  "areaServed": "Dinteloord en omgeving",
+  "sameAs": [
+    "https://www.facebook.com/hmdKlusBV",
+    "https://www.instagram.com/hmdklusbv"
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+<div class="page-wraper">
+
+    <!-- CONTENT START -->
+    <div class="page-content">
+
+        <div id="welcome_wrapper" class="rev_slider_wrapper fullscreen-container" data-alias="goodnews-header">
+            {% include "partials/hero-slider.html" %}
+        </div>
+
+        <!-- OUR SPECIALLIZATION START -->
+        <div class="section-full bg-white slider-half-part about-info2-wrap">
+            <div class="container">
+                <div class="section-content">
+                    <div class="row d-flex justify-content-center">
+
+                        <div class="col-lg-4 col-md-6 m-b30">
+                            <div class="half-blocks">
+                                <div class="mt-icon-box-wraper center m-b30">
+                                    <div class="half-block-content icon-count-2 p-a30 p-tb50">
+                                        <span class="icon-count-number">1</span>
+                                        <div class="mt-icon-box-lg radius bg-gray m-b20 scale-in-center">
+                                            <span class="icon-cell">
+                                                <img src="{% static 'img/icon/tools.png' %}" alt="">
+                                            </span>
+                                        </div>
+                                        <div class="icon-content">
+                                            <h4 class="mt-tilte m-b25">Klus en Reparatiewerk</h4>
+                                            <p>Wij voeren kleine reparaties uit in en rondom het huis, van deuren en
+                                                kozijnen tot hekwerk en schuurtjes.</p>
+                                            <a href="{% url 'diensten' %}klus-en-reparatiewerk" class="site-button-link"
+                                                data-hover="Meer informatie">
+                                                Meer informatie <i class="fa fa-angle-right arrow-animation"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="bg-cover half-blocks-bg"
+                                        style="background-image:url('{% static 'img/services/1.jpg' %}')"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 m-b30">
+                            <div class="half-blocks">
+                                <div class="mt-icon-box-wraper center m-b30">
+                                    <div class="half-block-content icon-count-2 bg-gray p-a30 p-tb50">
+                                        <span class="icon-count-number">2</span>
+                                        <div class="mt-icon-box-lg radius bg-gray m-b20 scale-in-center">
+                                            <span class="icon-cell"><img src="{% static 'img/icon/paint.png' %}"
+                                                    alt=""></span>
+                                        </div>
+                                        <div class="icon-content">
+                                            <h4 class="mt-tilte m-b25">Renovatie & Buitenwerk</h4>
+                                            <p>We verzorgen badkamerrenovaties, hogedrukreiniging en buitenwerk zoals
+                                                het plaatsen van schuttingen of schuurtjes.</p>
+                                            <a href="{% url 'diensten' %}renovatie-en-verbouw" class="site-button-link"
+                                                data-hover="Meer informatie">
+                                                Meer informatie <i class="fa fa-angle-right arrow-animation"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="bg-cover half-blocks-bg"
+                                        style="background-image:url('{% static 'img/services/3.jpg' %}')"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 m-b0">
+                            <div class="half-blocks">
+                                <div class="mt-icon-box-wraper center m-b30">
+                                    <div class="half-block-content icon-count-2 bg-gray p-a30 p-tb50">
+                                        <span class="icon-count-number">3</span>
+                                        <div class="mt-icon-box-lg radius bg-gray m-b20 scale-in-center">
+                                            <span class="icon-cell"><img src="{% static 'img/icon/architecture.png' %}"
+                                                    alt=""></span>
+                                        </div>
+                                        <div class="icon-content">
+                                            <h4 class="mt-tilte m-b25">Woning
+                                                Renovatie</h4>
+                                            <p>Van vloer tot plafond: wij helpen bij het opknappen van uw woning met
+                                                nette afwerking en betrouwbare uitvoering.</p>
+                                            <a href="{% url 'diensten' %}woning-renovatie" class="site-button-link"
+                                                data-hover="Meer informatie">
+                                                Meer informatie <i class="fa fa-angle-right arrow-animation"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="bg-cover half-blocks-bg"
+                                        style="background-image:url('{% static 'img/services/2.jpg' %}')"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div><!-- /.row -->
+                </div>
+            </div>
+        </div>
+        <!-- OUR SPECIALLIZATION END -->
+
+        <!-- ABOUT COMPANY START -->
+        <div class="section-full" style="background-image:url('{% static 'img/background/bg-map.png' %}')">
+            <div class="services-half-section-top">
+                <div class="container">
+                    <div class="section-head">
+                        <div class="mt-separator-outer separator-left text-wh">
+                            <div class="mt-separator">
+                                <h2 class="text-uppercase sep-line-one "><span
+                                        class="font-weight-300 site-text-primary">HMD</span> Klusbedrijf</h2>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section-content">
+                        <div class="row">
+                            <!-- Left: Carousel -->
+                            <div class="col-xl-8 col-lg-12 col-md-12">
+                                <div class="owl-carousel about-home about-home-v2 owl-dots-bottom-left">
+                                    <div class="item">
+                                        <div class="mt-img-effect zoom-slow"><img
+                                                src="{% static 'img/gallery/pic8.jpg' %}" alt=""></div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="mt-img-effect zoom-slow"><img
+                                                src="{% static 'img/gallery/pic6.jpg' %}" alt=""></div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="mt-img-effect zoom-slow"><img
+                                                src="{% static 'img/gallery/pic9.jpg' %}" alt=""></div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="mt-img-effect zoom-slow"><img
+                                                src="{% static 'img/gallery/pic2.jpg' %}" alt=""></div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="mt-img-effect zoom-slow"><img
+                                                src="{% static 'img/gallery/pic3.jpg' %}" alt=""></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Right: Text -->
+                            <div class="col-xl-4 col-lg-12 col-md-12">
+                                <div class="about-home-right about-right-v2 site-bg-primary text-white p-a30">
+                                    <h3 class="m-t0"><span class="font-weight-100">Toegewijd</span> aan kwaliteit en
+                                        vakmanschap.</h3>
+                                    <p><strong>HMD Klusbedrijf is opgericht door Juma Al Huseyin en staat voor
+                                            betrouwbaarheid, kwaliteit en eerlijke service. Met oog voor detail voert
+                                            hij elke klus uit alsof het zijn eigen huis is.</strong></p>
+                                    <p>Of het nu gaat om kleine reparaties, schilderwerk, timmerklussen of een volledige
+                                        badkamerrenovatie — HMD Klusbedrijf levert professioneel werk binnen een straal
+                                        van 50 km rond Dinteloord.</p>
+                                    <div class="text-left">
+                                        <a href="{% url 'index' %}over-ons" class="site-button-secondry btn-effect">Lees
+                                            Meer</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- /.row -->
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- ABOUT COMPANY END -->
+
+        <!-- OUR VALUE START -->
+        <div class="section-full p-t80 p-b50 bg-white mobile-page-padding">
+            <div class="container">
+                <div class="section-content">
+                    <div class="row align-items-center">
+                        <div class="empty50"></div>
+                        <div class="col-md-6">
+                            <img src="{% static 'img/gallery/pic9.jpg' %}" alt="Werk in uitvoering" class="img-fluid" />
+                        </div>
+                        <div class="col-md-6">
+                            <div class="video-part-2">
+                                <h3><span class="font-weight-100">Wij leveren</span> vakwerk waar u op kunt vertrouwen
+                                </h3>
+                                <p>HMD Klusbedrijf voert elke klus met zorg en vakmanschap uit. Of het nu gaat om een
+                                    kleine reparatie of een complete renovatie, wij staan klaar voor particulieren in de
+                                    regio Dinteloord en omgeving.</p>
+                                <ul class="list-angle-right anchor-line">
+                                    <li><a href="{% url 'diensten' %}kluswerk">Klus en Reparatiewerk</a></li>
+                                    <li><a href="{% url 'diensten' %}timmerwerk">Timmerwerk &amp; Interieur</a></li>
+                                    <li><a href="{% url 'diensten' %}badkamer-renovatie">Badkamerrenovatie &amp;
+                                            Buitenwerk</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="empty50"></div>
+                    </div>
+                    <div class="author-info author-info-v2 p-t20"></div>
+                </div>
+            </div>
+        </div>
+        <!-- OUR VALUE END -->
+
+        <!-- OUR MISSION START -->
+        <div class="section-full site-bg-dark">
+            <div class="section-content">
+                <div class="container get-in-touch-form">
+                    <div class="row">
+
+                        <div class="col-lg-6 col-md-6">
+                            <div class="contact-home1-left contact-home1-left-v2 site-bg-dark p-a30 m-b30 p-t50">
+                                <h3 class="text-white m-t0"><span class="font-weight-100">Neem</span> Contact op!</h3>
+                                <form class="cons-contact-form2 form-transparent" method="post" action="">
+                                    {% csrf_token %}
+                                    <div class="input input-animate">
+                                        <label for="name">Naam</label>
+                                        <input type="text" name="username" id="name" required>
+                                        <span class="spin"></span>
+                                    </div>
+
+                                    <div class="input input-animate">
+                                        <label for="email">Email</label>
+                                        <input type="email" name="email" id="email" required>
+                                        <span class="spin"></span>
+                                    </div>
+
+                                    <div class="input input-animate">
+                                        <label for="Phone">Phone</label>
+                                        <input type="text" name="phone" id="Phone" required>
+                                        <span class="spin"></span>
+                                    </div>
+
+                                    <div class="input input-animate">
+                                        <label for="message">Textarea</label>
+                                        <textarea name="message" id="message" required></textarea>
+                                        <span class="spin"></span>
+                                    </div>
+
+                                    <div class="text-left p-t10">
+                                        <button type="submit" class="site-button btn-effect">Stuur Bericht</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="get-in-touch-form-section">
+                            <div class="get-in-touch-form-section-img">
+                                <img src="{% static 'img/s-pic-1.png' %}" alt="">
+                            </div>
+                            <div class="get-in-touch-info arrow-animation">
+                                <div class="mt-icon-box-wraper p-a20 left bg-white hover-shadow">
+                                    <div class="icon-md m-b20 scale-in-center">
+                                        <span class="icon-cell text-secondry"><img
+                                                src="{% static 'img/icon/icon-img-01.png' %}" alt=""></span>
+                                    </div>
+                                    <div class="icon-content">
+                                        <h4 class="mt-tilte m-b0">Contact</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div><!-- /.row -->
+                </div>
+            </div>
+        </div>
+        <!-- OUR MISSION END -->
+
+        <!-- OUR SERVICES START -->
+        <div class="section-full p-t80 p-b50 bg-white mobile-page-padding"
+            style="background-image:url('{% static 'img/background/ptn-1.png' %}')">
+            <div class="section-content">
+                <div class="container">
+
+                    <div class="section-head m-b50">
+                        <div class="mt-separator-outer separator-left">
+                            <div class="mt-separator">
+                                <h2 class="text-uppercase sep-line-one "><span
+                                        class="font-weight-300 site-text-primary">Onze</span> Diensten</h2>
+                            </div>
+                        </div>
+                        <h3>Wij bieden betrouwbare klussen, renovaties en onderhoud in en rondom uw woning.</h3>
+                    </div>
+
+                    <div class="row services-v2 no-col-gap">
+                        <!-- repeatable service card pattern -->
+                        <div class="col-lg-3 col-md-6 col-sm-6">
+                            <div class="mt-icon-box-wraper bdr-l-1 bdr-solid bdr-gray">
+                                <div class="relative p-a30">
+                                    <div class="icon-md inline-icon m-b15 site-text-primary scale-in-center">
+                                        <span class="icon-cell"><img src="{% static 'img/icon/engineering.png' %}"
+                                                alt=""></span>
+                                    </div>
+                                    <div class="icon-content">
+                                        <h4 class="mt-tilte m-b25">Materiaal <br>Keuze</h4>
+                                        <p>We adviseren bij de keuze van materialen zoals vloeren, verf en sanitair,
+                                            zodat u kwaliteit krijgt die past bij uw wensen.</p>
+                                        <a href="{% url 'diensten' %}materiaalkeuze" class="site-button-link"
+                                            data-hover="Lees Meer">
+                                            Lees Meer <i class="fa fa-angle-right arrow-animation"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-6">
+                            <div class="mt-icon-box-wraper bdr-l-1 bdr-solid bdr-gray">
+                                <div class="relative p-a30">
+                                    <div class="icon-md inline-icon m-b15 site-text-primary scale-in-center">
+                                        <span class="icon-cell"><img src="{% static 'img/icon/toolbox.png' %}"
+                                                alt=""></span>
+                                    </div>
+                                    <div class="icon-content">
+                                        <h4 class="mt-tilte m-b25">Klus Onderhoud</h4>
+                                        <p>We lossen kleine problemen snel op: kapotte deuren, lekkende kranen, losse
+                                            plinten of andere klusjes.</p>
+                                        <a href="{% url 'diensten' %}klus-onderhoud" class="site-button-link"
+                                            data-hover="Lees Meer">
+                                            Lees Meer <i class="fa fa-angle-right arrow-animation"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-6">
+                            <div class="mt-icon-box-wraper bdr-l-1 bdr-solid bdr-gray">
+                                <div class="relative p-a30">
+                                    <div class="icon-md inline-icon m-b15 site-text-primary scale-in-center">
+                                        <span class="icon-cell"><img src="{% static 'img/icon/idea.png' %}"
+                                                alt=""></span>
+                                    </div>
+                                    <div class="icon-content">
+                                        <h4 class="mt-tilte m-b25">Klus <br>Advies</h4>
+                                        <p>We geven eerlijk advies over materialen, oplossingen en mogelijkheden —
+                                            afgestemd op uw woning en budget.</p>
+                                        <a href="{% url 'diensten' %}klusadvies" class="site-button-link"
+                                            data-hover="Lees Meer">
+                                            Lees Meer <i class="fa fa-angle-right arrow-animation"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-6">
+                            <div class="mt-icon-box-wraper bdr-l-1 bdr-solid bdr-gray">
+                                <div class="relative p-a30">
+                                    <div class="icon-md inline-icon m-b15 site-text-primary scale-in-center">
+                                        <span class="icon-cell"><img src="{% static 'img/icon/keuken.png' %}"
+                                                alt=""></span>
+                                    </div>
+                                    <div class="icon-content">
+                                        <h4 class="mt-tilte m-b25">Interieur <br>Styling</h4>
+                                        <p>Wij denken graag met u mee over kleine interieurverbeteringen en afwerking
+                                            die bij uw stijl passen.</p>
+                                        <a href="{% url 'diensten' %}interieurstyling" class="site-button-link"
+                                            data-hover="Lees Meer">
+                                            Lees Meer <i class="fa fa-angle-right arrow-animation"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <ul class="list-inline m-t30">
+                            <li class="btn-col-last">
+                                <a href="diensten" id="open-afspraak" class="site-button-secondry btn-effect">Bekijk
+                                    alles diensten</a>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- OUR SERVICES END -->
+
+        <!-- CALL US SECTION START -->
+        <div class="section-full p-tb80 overlay-wraper bg-center bg-parallax bg-cover"
+            data-stellar-background-ratio="0.5" style="background-image:url('{% static 'img/background/bg-10.jpg' %}')">
+            <div class="overlay-main bg-black opacity-07"></div>
+            <div class="container">
+                <div class="section-content">
+                    <div class="call-us-section text-center text-white">
+                        <h4 class="m-b15">Laten we samenwerken</h4>
+                        <h2 class="call-us-number m-b15 m-b0">
+                            <a href="https://wa.me/31687111289" target="_blank" class="site-button btn-effect"
+                                rel="noopener">
+                                06-8 711 1289
+                            </a>
+                        </h2>
+                        <h4 class="call-us-address m-t0 m-b20">Witte de Withstraat 28, 4671 AP Dinteloord</h4>
+                        <a href="{% url 'contact' %}" class="site-button btn-effect">Neem contact op</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- CALL US SECTION END -->
+
+    </div>
+    <!-- CONTENT END -->
+
+</div>
+{% endblock %}

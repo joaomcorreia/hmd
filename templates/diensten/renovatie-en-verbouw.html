@@ -1,0 +1,161 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Renovatie en Verbouw | HMD Klusbedrijf{% endblock %}
+
+{% block extra_head %}
+<meta name="description"
+  content="Renovatie en verbouw in Dinteloord en omgeving: keuken en badkamer, wanden/plafonds en vloeren — strak uitgevoerd met heldere planning.">
+<link rel="canonical" href="{{ request.build_absolute_uri }}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="HMD Klusbedrijf">
+<meta property="og:title" content="Renovatie en Verbouw | HMD Klusbedrijf">
+<meta property="og:description"
+  content="Strakke renovaties met duidelijke planning: keuken, badkamer, wanden, plafonds en vloeren.">
+<meta property="og:url" content="{{ request.build_absolute_uri }}">
+<meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}{% static 'img/og-default.jpg' %}">
+<meta name="robots" content="index,follow">
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Home","item":"{{ request.scheme }}://{{ request.get_host }}/"},
+    {"@type":"ListItem","position":2,"name":"Diensten","item":"{{ request.scheme }}://{{ request.get_host }}{% url 'diensten' %}"},
+    {"@type":"ListItem","position":3,"name":"Renovatie en Verbouw","item":"{{ request.scheme }}://{{ request.get_host }}{{ request.path }}"}
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Service",
+  "name":"Renovatie en Verbouw",
+  "description":"Keuken en badkamer, wanden/plafonds en vloeren — strak uitgevoerd met heldere planning in Dinteloord en omgeving.",
+  "serviceType":"Renovatie en verbouw",
+  "areaServed":"Dinteloord","Steenbergen","Breda","Dordrecht","Rotterdam",
+  "url":"{{ request.scheme }}://{{ request.get_host }}{{ request.path }}",
+  "provider":{
+    "@type":"LocalBusiness",
+    "name":"HMD Klusbedrijf",
+    "image":"{{ request.scheme }}://{{ request.get_host }}{% static 'img/og-default.jpg' %}",
+    "telephone":"+31 6 87111289",
+    "address":{
+      "@type":"PostalAddress",
+      "streetAddress":"Witte de Withstraat 28",
+      "postalCode":"4671 AP",
+      "addressLocality":"Dinteloord",
+      "addressCountry":"NL"
+    }
+  }
+}
+</script>
+{% endblock %}
+
+{% block content %}
+<div class="page-content">
+  <!-- HERO -->
+  <div class="mt-bnr-inr overlay-wraper bg-parallax bg-top-center" data-stellar-background-ratio="0.5"
+    style="background-image:url('{% static 'img/background/banner-default.jpg' %}')">
+    <div class="overlay-main bg-black opacity-07"></div>
+    <div class="container">
+      <div class="mt-bnr-inr-entry">
+        <div class="banner-title-outer">
+          <div class="banner-title-name">
+            <h2 class="m-b0">Renovatie en Verbouw</h2>
+            <p class="breadcrumb-white">Keuken, badkamer, wanden en vloeren – ook in Steenbergen</p>
+          </div>
+        </div>
+        <!-- BREADCRUMB ROW -->
+        <div>
+          <ul class="mt-breadcrumb breadcrumb-style-2">
+            <li><a href="{% url 'index' %}">Home</a></li>
+            <li><a href="{% url 'diensten' %}">Diensten</a></li>
+            <li>Renovatie en Verbouw</li>
+          </ul>
+        </div>
+        <!-- BREADCRUMB ROW END -->
+      </div>
+    </div>
+  </div>
+  <!-- HERO END -->
+
+  <!-- SECTION CONTENT START -->
+  <div class="section-full p-tb80 inner-page-padding">
+    <div class="container">
+      <div class="row">
+        <!-- MAIN -->
+        <div class="col-lg-8 col-md-12">
+          <div class="blog-post date-style-3 blog-detail text-black">
+            <div class="mt-post-media clearfix m-b30">
+              <ul class="grid-post">
+                <li>
+                  <div class="portfolio-item">
+
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <div class="mt-post-title">
+              <img class="img-responsive" src="{% static 'img/diensten/renovatie-en-verbouw.jpg' %}"
+                alt="Renovatie en verbouw in Dinteloord: keuken, badkamer, wanden en vloeren">
+              <div class="empty20"></div>
+              <h3 class="post-title">Strakke renovaties met heldere planning</h3>
+            </div>
+
+            <div class="mt-post-text">
+              <p>HMD Klusbedrijf verzorgt <strong>renovatie en verbouw in Dinteloord</strong> en omgeving,
+                waaronder <strong>Steenbergen</strong>. We combineren strak timmerwerk, stucwerk en schilderwerk met
+                een duidelijke planning en nette oplevering.</p>
+
+              <h4>Wat we voor u doen</h4>
+              <ul class="list-check-circle">
+                <li>Keuken- en badkamerverbouw, leidingwerk voorbereid</li>
+                <li>Wanden en plafonds: gips, stucwerk en schilderafwerking</li>
+                <li>Vloeren: egaliseren en leggen (PVC/laminaat/hout)</li>
+                <li>Indelingswijzigingen, ombouwen en kasten op maat</li>
+                <li>Afwerking: plinten, kit- en schilderwerk</li>
+              </ul>
+
+              <h4>Onze werkwijze</h4>
+              <ul class="list-angle-right">
+                <li>Intake en advies op locatie</li>
+                <li>Planning met mijlpalen en vaste contactpersoon</li>
+                <li>Netjes werken, stofarm waar mogelijk</li>
+                <li>Oplevering en nazorg</li>
+              </ul>
+
+              <p>Klaar voor een <strong>vrijblijvende offerte</strong>? Neem contact op en we plannen snel een bezoek
+                in Dinteloord of omgeving.</p>
+
+              <blockquote class="site-bg-dark text-white author-quote">
+                <h4 class="m-b0">“Goed renoveren is plannen, voorbereiden en precies afwerken.” <i
+                    class="fa fa-quote-right"></i></h4>
+                <div class="p-t15 text-white">
+                  <strong class="site-text-primary">HMD Klusbedrijf</strong>
+                  <span>Renovatie &amp; Verbouw</span>
+                </div>
+              </blockquote>
+            </div>
+          </div>
+        </div>
+
+        <!-- SIDEBAR -->
+        <div class="col-lg-4 col-md-12">
+          <aside class="side-bar">
+            <div class="empty50"></div>
+            {% include "partials/sidebar-map-widget.html" %}
+            {% include "partials/sidebar-whatsapp-widget.html" %}
+            {% include "partials/sidebar-diensten-ticker.html" %}
+            {% include "partials/sidebar-portfolio.html" %}
+          </aside>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- SECTION CONTENT END -->
+</div>
+{% endblock %}

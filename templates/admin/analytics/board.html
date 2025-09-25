@@ -1,0 +1,39 @@
+{% extends "admin/base_site.html" %}
+{% block content %}
+<h1>Google & Facebook</h1>
+<div class="module" style="padding:16px">
+    <div style="margin-bottom:12px">
+        <button id="tabGA">Google</button>
+        <button id="tabFB">Facebook</button>
+    </div>
+    <div id="gaPane">
+        <h3>Google Analytics</h3>
+        <div id="gaCards"></div>
+    </div>
+    <div id="fbPane" style="display:none">
+        <h3>Facebook</h3>
+        <div id="fbCards"></div>
+    </div>
+</div>
+<script>
+    (function () {
+        const gaPane = document.getElementById('gaPane');
+        const fbPane = document.getElementById('fbPane');
+        document.getElementById('tabGA').onclick = () => { gaPane.style.display = 'block'; fbPane.style.display = 'none'; };
+        document.getElementById('tabFB').onclick = () => { gaPane.style.display = 'none'; fbPane.style.display = 'block'; };
+
+        function renderCards(el, data) {
+            el.innerHTML = '';
+            (data.cards || []).forEach(c => {
+                const d = document.createElement('div');
+                d.className = 'dashboard-card';
+                d.style.border = '1px solid #ddd'; d.style.padding = '12px'; d.style.margin = '8px 0';
+                d.innerHTML = `<strong>${c.title}</strong><div>${c.value}</div>`;
+                el.appendChild(d);
+            });
+        }
+        fetch('/admin/api/ga/summary/').then(r => r.json()).then(d => renderCards(document.getElementById('gaCards'), d));
+        fetch('/admin/api/fb/summary/').then(r => r.json()).then(d => renderCards(document.getElementById('fbCards'), d));
+    })();
+</script>
+{% endblock %}

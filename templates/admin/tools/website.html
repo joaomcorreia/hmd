@@ -1,0 +1,150 @@
+{% extends "admin/base_site.html" %}
+{% load static %}
+
+{% block content %}
+<section class="pricing">
+    <h2>Website Pakketten</h2>
+    <div class="pricing-grid">
+
+        <!-- Django Website -->
+        <div class="card">
+            <h3>Django Website</h3>
+            <p class="price">vanaf €1.499</p>
+            <ul>
+                <li>Volledig maatwerk</li>
+                <li>Admin dashboard & AI assistent</li>
+                <li>Multi-language & multi-tenant</li>
+                <li>Inbegrepen supportplan</li>
+            </ul>
+            <a href="#" class="btn">Start nu</a>
+        </div>
+
+        <!-- PHP / Static Website -->
+        <div class="card">
+            <h3>PHP / Statisch</h3>
+            <p class="price">vanaf €599</p>
+            <ul>
+                <li>Snel & lichtgewicht</li>
+                <li>Responsive design</li>
+                <li>Goede optie voor kleine bedrijven</li>
+                <li>Basis SEO inbegrepen</li>
+            </ul>
+            <a href="#" class="btn">Start nu</a>
+        </div>
+
+        <!-- WordPress Website -->
+        <div class="card">
+            <h3>WordPress</h3>
+            <p class="price">vanaf €799</p>
+            <ul>
+                <li>Bekend CMS</li>
+                <li>Themes & plugins</li>
+                <li>Makkelijk zelf te beheren</li>
+                <li>Snelle oplevering</li>
+            </ul>
+            <a href="#" class="btn">Start nu</a>
+        </div>
+
+        <!-- Online Store -->
+        <div class="card">
+            <h3>Online Store</h3>
+            <p class="price">vanaf €1.199</p>
+            <ul>
+                <li>WooCommerce of Django Shop</li>
+                <li>Betaalgateway integratie</li>
+                <li>Voorraadbeheer</li>
+                <li>Optie dropshipping API</li>
+            </ul>
+            <a href="#" class="btn">Start nu</a>
+        </div>
+
+        <!-- Blog -->
+        <div class="card">
+            <h3>Blog</h3>
+            <p class="price">vanaf €499</p>
+            <ul>
+                <li>SEO geoptimaliseerd</li>
+                <li>Artikelen & categorieën</li>
+                <li>Social media integratie</li>
+                <li>Statistieken & analyse</li>
+            </ul>
+            <a href="#" class="btn">Start nu</a>
+        </div>
+
+        <!-- One-Page Website -->
+        <div class="card">
+            <h3>One-Page Website</h3>
+            <p class="price">vanaf €399</p>
+            <ul>
+                <li>Snelle oplevering (1 dag)</li>
+                <li>Modern design</li>
+                <li>Inclusief Facebook & Instagram setup</li>
+                <li>Contactformulier / WhatsApp koppeling</li>
+            </ul>
+            <a href="#" class="btn">Start nu</a>
+        </div>
+
+    </div>
+</section>
+{% endblock %}
+
+{% block extrahead %}
+{{ block.super }}
+<style>
+    .pricing {
+        padding: 40px;
+        background: #f9f9f9;
+        text-align: center;
+    }
+
+    .pricing-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        gap: 20px;
+        margin-top: 30px;
+    }
+
+    .card {
+        background: #fff;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        padding: 20px;
+        text-align: left;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    }
+
+    .card h3 {
+        margin-top: 0;
+        color: #1c242b;
+    }
+
+    .card .price {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin: 10px 0 15px;
+        color: #ca6483;
+    }
+
+    .card ul {
+        padding-left: 20px;
+        margin: 0 0 20px;
+    }
+
+    .card ul li {
+        margin: 6px 0;
+    }
+
+    .btn {
+        display: inline-block;
+        padding: 8px 16px;
+        border-radius: 6px;
+        background: #1c242b;
+        color: #fff;
+        text-decoration: none;
+    }
+
+    .btn:hover {
+        background: #333;
+    }
+</style>
+{% endblock %}

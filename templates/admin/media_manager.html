@@ -1,0 +1,72 @@
+{% extends "admin/base_site.html" %}
+{% load static %}
+
+{% block content %}
+<h1>Media beheren</h1>
+
+<form method="post" enctype="multipart/form-data" novalidate>
+    {% csrf_token %}
+
+    <div class="module">
+        <h2>Slides (homepage)</h2>
+        {{ slides_fs.management_form }}
+        <table class="adminlist">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Subtitle</th>
+                    <th>Image</th>
+                    <th>Actief</th>
+                    <th>Volgorde</th>
+                    <th>Verwijderen</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for form in slides_fs %}
+                <tr>
+                    <td>{{ form.title }}</td>
+                    <td>{{ form.subtitle }}</td>
+                    <td>{{ form.image }}</td>
+                    <td>{{ form.is_active }}</td>
+                    <td>{{ form.order }}</td>
+                    <td>{{ form.DELETE }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <p><a class="button" href="{% url 'admin:core_slide_add' %}">Nieuwe slide toevoegen</a></p>
+    </div>
+
+    <div class="module">
+        <h2>Portfolio</h2>
+        {{ port_fs.management_form }}
+        <table class="adminlist">
+            <thead>
+                <tr>
+                    <th>Titel</th>
+                    <th>Categorie</th>
+                    <th>Image</th>
+                    <th>Actief</th>
+                    <th>Verwijderen</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for form in port_fs %}
+                <tr>
+                    <td>{{ form.title }}</td>
+                    <td>{{ form.category }}</td>
+                    <td>{{ form.image }}</td>
+                    <td>{{ form.is_active }}</td>
+                    <td>{{ form.DELETE }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <p><a class="button" href="{% url 'admin:core_portfolioitem_add' %}">Nieuw portfolio-item</a></p>
+    </div>
+
+    <div style="margin-top:16px">
+        <input type="submit" class="default" value="Opslaan">
+    </div>
+</form>
+{% endblock %}

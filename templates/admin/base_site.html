@@ -1,0 +1,10 @@
+{% extends "admin/base.html" %}
+{% block extrastyle %}{{ block.super }}
+<style>
+    #nav-sidebar {
+        max-height: none;
+        height: auto;
+        overflow: auto
+    }
+</style>
+{% endblock %}

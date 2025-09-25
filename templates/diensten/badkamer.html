@@ -1,0 +1,170 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Badkamer | HMD Klusbedrijf{% endblock %}
+
+{% block extra_head %}
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Home","item":"{{ request.scheme }}://{{ request.get_host }}/"},
+    {"@type":"ListItem","position":2,"name":"Diensten","item":"{{ request.scheme }}://{{ request.get_host }}/diensten/"},
+    {"@type":"ListItem","position":3,"name":"Badkamer","item":"{{ request.scheme }}://{{ request.get_host }}{{ request.path }}"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Service",
+  "name":"Badkamer",
+  "description":"Badkamer renovatie en vernieuwing in Dinteloord en omgeving. Sloop, leidingwerk, elektra, tegelwerk en afwerking door één team.",
+  "serviceType":"Badkamer",
+  "areaServed":"Dinteloord en omgeving",
+  "url":"{{ request.scheme }}://{{ request.get_host }}{{ request.path }}",
+  "provider":{
+    "@type":"LocalBusiness",
+    "name":"HMD Klusbedrijf",
+    "image":"{{ request.scheme }}://{{ request.get_host }}{% static 'img/og-default.jpg' %}",
+    "telephone":"+31 6 87111289",
+    "address":{
+      "@type":"PostalAddress",
+      "streetAddress":"Witte de Withstraat 28",
+      "postalCode":"4671 AP",
+      "addressLocality":"Dinteloord",
+      "addressCountry":"NL"
+    }
+  }
+}
+</script>
+{% endblock %}
+
+{% block content %}
+<div class="page-wraper">
+    <!-- CONTENT START -->
+    <div class="page-content">
+        <!-- HERO -->
+        <div class="mt-bnr-inr overlay-wraper bg-parallax bg-middle-center" data-stellar-background-ratio="0.5"
+            style="background-image:url('{% static 'img/background/banner-default.jpg' %}')">
+            <div class="overlay-main bg-black opacity-07"></div>
+            <div class="container">
+                <div class="mt-bnr-inr-entry">
+                    <div class="banner-title-outer">
+                        <div class="banner-title-name">
+                            <h2 class="m-b0">Badkamer</h2>
+                            <p class="breadcrumb-white">Van indeling tot afwerking. Eén aanspreekpunt.</p>
+                        </div>
+                    </div>
+                    <div>
+                        <ul class="mt-breadcrumb breadcrumb-style-2">
+                            <li><a href="{% url 'index' %}">Home</a></li>
+                            <li><a href="{% url 'diensten' %}">Diensten</a></li>
+                            <li>Badkamer</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- HERO END -->
+
+        <!-- CONTENT -->
+        <div class="section-full p-tb80 inner-page-padding">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-md-12">
+                        <div class="blog-post date-style-3 blog-detail text-black">
+                            <div class="mt-post-media clearfix m-b30">
+                                <img src="{% static 'img/diensten/badkamer.jpg' %}"
+                                    alt="Badkamer renovatie in Dinteloord: tegelwerk en sanitair door HMD Klusbedrijf">
+
+                                <ul class="grid-post">
+                                    <li>
+                                        <div class="portfolio-item">
+                                            <img class="img-responsive"
+                                                src="{% static 'img/services/badkamer-renovatie-01.jpg' %}"
+                                                alt="Badkamer renovatie in Dinteloord: tegelwerk en sanitair door HMD Klusbedrijf">
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="mt-post-title">
+                                <h3 class="post-title">Complete Badkamer, strak opgeleverd</h3>
+                                <p>Wij verzorgen <strong>badkamerprojecten in Dinteloord</strong> en omgeving,
+                                    waaronder <strong>Steenbergen</strong> en <strong>Roosendaal</strong>.
+                                    Of het nu gaat om renovatie, vernieuwing of een gedeeltelijke update: planning,
+                                    uitvoering en afwerking door één team.
+                                </p>
+                                <p>We starten met een opname en indelingsadvies. Daarna stemmen we materiaalkeuze,
+                                    levertijden en planning af zodat demontage, ruwbouw en afbouw naadloos aansluiten.
+                                    U houdt één contactpunt en een helder tijdschema.</p>
+                                <p>Waterdichte details krijgen prioriteit. Natte zones worden volgens richtlijn
+                                    afgedicht (kimband, afdichtingslagen) en ventilatie wordt gecontroleerd of
+                                    verbeterd. Zo blijft de badkamer langer schoon en schimmelvrij.</p>
+                            </div>
+
+                            <div class="mt-post-text">
+                                <h4>Wat wij uitvoeren</h4>
+                                <ul class="list-check-circle">
+                                    <li><strong>Sloop en voorbereiden</strong>: verwijderen sanitair en tegelwerk,
+                                        stofbeperkt</li>
+                                    <li><strong>Leidingwerk</strong>: water, afvoer en verleggen aansluitingen</li>
+                                    <li><strong>Elektra</strong>: verlichting, schakelaars, stopcontacten, spiegel en
+                                        ventilator</li>
+                                    <li><strong>Vochtdichting</strong>: kimband en afdichting in natte zones</li>
+                                    <li><strong>Tegelwerk</strong>: wanden en vloeren met strakke voeglijnen</li>
+                                    <li><strong>Stucwerk en egalisatie</strong> waar nodig voor vlak resultaat</li>
+                                    <li><strong>Sanitair plaatsen</strong>: toilet, douche, bad, meubel, glas en kranen
+                                    </li>
+                                    <li><strong>Afwerking</strong>: kitwerk, plinten, schilderwerk volgens planning</li>
+                                </ul>
+
+                                <h4>Werkwijze</h4>
+                                <ul class="list-angle-right">
+                                    <li>Opname en indelingsadvies</li>
+                                    <li>Duidelijke planning en materiaalkeuze</li>
+                                    <li>Nette uitvoering met één aanspreekpunt</li>
+                                    <li>Schoon en klaar voor gebruik op oplevering</li>
+                                </ul>
+
+                                <p>We adviseren tijdig keuzes te maken voor tegelformaat, voegkleur en profielafwerking
+                                    (RVS/alu). Grote formaten vragen een vlakke ondergrond en nauwkeurige uitzetting.
+                                    Dit nemen we mee in de voorbereiding zodat het eindbeeld rustig en symmetrisch oogt.
+                                </p>
+
+                                <blockquote class="site-bg-dark text-white author-quote">
+                                    <h4 class="m-b0">Een badkamer vernieuwen is maatwerk. Wij combineren strak tegelwerk
+                                        met waterdichte details. <i class="fa fa-quote-right"></i></h4>
+                                    <div class="p-t15 text-white">
+                                        <strong class="site-text-primary">HMD Klusbedrijf</strong>
+                                        <span>Badkamer</span>
+                                    </div>
+                                </blockquote>
+
+                                <p>Klaar voor een <strong>badkamer in Dinteloord</strong>? Vraag een
+                                    <a href="{% url 'contact' %}"><strong>vrijblijvende offerte</strong></a> aan.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SIDEBAR -->
+                    <div class="col-lg-4 col-md-12">
+                        <aside class="side-bar">
+                            <div class="empty50"></div>
+                            {% include "partials/sidebar-map-widget.html" %}
+                            {% include "partials/sidebar-whatsapp-widget.html" %}
+                            {% include "partials/sidebar-diensten-ticker.html" %}
+                            {% include "partials/sidebar-portfolio.html" %}
+                        </aside>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- CONTENT END -->
+    </div>
+    <!-- PAGE-CONTENT END -->
+</div>
+{% endblock %}

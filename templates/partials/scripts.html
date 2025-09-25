@@ -1,0 +1,134 @@
+{% load static %}
+<!-- JS vendor -->
+<script src="{% static 'js/jquery-3.6.1.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/popper.min.js' %}"></script>
+<script src="{% static 'js/magnific-popup.min.js' %}"></script>
+<script src="{% static 'js/waypoints.min.js' %}"></script>
+<script src="{% static 'js/counterup.min.js' %}"></script>
+<script src="{% static 'js/waypoints-sticky.min.js' %}"></script>
+<script src="{% static 'js/isotope.pkgd.min.js' %}"></script>
+<script src="{% static 'js/imagesloaded.pkgd.min.js' %}"></script>
+<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+<script src="{% static 'js/jquery.owl-filter.js' %}"></script>
+
+<!-- Your JS -->
+<script src="{% static 'js/custom.js' %}"></script>
+<script src="{% static 'js/shortcode.js' %}"></script>
+<script src="{% static 'js/jquery.bgscroll.js' %}"></script>
+<script src="{% static 'js/hero-slider.js' %}"></script>
+<script src="{% static 'js/bot.js' %}"></script>
+<script src="{% static 'js/gallery.js' %}"></script>
+
+
+
+<!-- Cookie Consent (single instance) -->
+<script type="module">
+    import 'https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.1.0/dist/cookieconsent.umd.js';
+    CookieConsent.run({
+        categories: { necessary: { enabled: true, readOnly: true }, analytics: {}, ads: {} },
+        language: {
+            default: (navigator.language || 'en').startsWith('nl') ? 'nl' : 'en',
+            translations: {
+                en: {
+                    consentModal: { title: 'We use cookies', description: 'We use essential cookies and, with your consent, analytics/ads cookies.', acceptAllBtn: 'Accept all', acceptNecessaryBtn: 'Reject all', showPreferencesBtn: 'Manage preferences' },
+                    preferencesModal: {
+                        title: 'Cookie preferences', acceptAllBtn: 'Accept all', acceptNecessaryBtn: 'Reject all', savePreferencesBtn: 'Save selection',
+                        sections: [{ title: 'Strictly necessary', linkedCategory: 'necessary', description: 'Required for site functionality.' },
+                        { title: 'Analytics', linkedCategory: 'analytics', description: 'Helps us improve the site.' },
+                        { title: 'Advertising', linkedCategory: 'ads', description: 'Personalized/targeted ads.' }]
+                    }
+                },
+                nl: {
+                    consentModal: { title: 'Wij gebruiken cookies', description: 'We gebruiken essentiële cookies en, met jouw toestemming, analytics/advertentie-cookies.', acceptAllBtn: 'Alles accepteren', acceptNecessaryBtn: 'Alles weigeren', showPreferencesBtn: 'Voorkeuren beheren' },
+                    preferencesModal: {
+                        title: 'Cookie-instellingen', acceptAllBtn: 'Alles accepteren', acceptNecessaryBtn: 'Alles weigeren', savePreferencesBtn: 'Selectie opslaan',
+                        sections: [{ title: 'Strikt noodzakelijk', linkedCategory: 'necessary', description: 'Nodig voor de werking van de site.' },
+                        { title: 'Analytics', linkedCategory: 'analytics', description: 'Helpt ons de site te verbeteren.' },
+                        { title: 'Advertenties', linkedCategory: 'ads', description: 'Gepersonaliseerde/gerichte advertenties.' }]
+                    }
+                }
+            }
+        }
+    });
+</script>
+
+<!-- Block GA until consent -->
+<script type="text/plain" data-category="analytics" data-service="Google Analytics"
+    data-src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
+<script type="text/plain" data-category="analytics" data-service="Google Analytics">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-2DWVD48GFR', { anonymize_ip: true });
+</script>
+
+<!-- Afspraak modal JS -->
+<script>
+    (function () {
+        const WA_NUMBER = '+31687111289';
+        const SITE_NAME = 'HMD Klusbedrijf';
+        const openBtn = document.getElementById('open-afspraak');
+        const modal = document.getElementById('afspraak-modal');
+        const backdrop = document.getElementById('afspraak-backdrop');
+        const closeBtn = document.getElementById('close-afspraak');
+        const cancelBtn = document.getElementById('cancel-afspraak');
+        const form = document.getElementById('afspraak-form');
+        if (!form) return;
+        const hp = form.querySelector('input[name="bedrijf_fax"]');
+        const t0 = form.querySelector('input[name="t0"]');
+
+        const open = () => { t0.value = String(Date.now()); modal.style.display = 'flex'; backdrop.style.display = 'block'; document.body.style.overflow = 'hidden'; form.querySelector('#af-naam').focus(); };
+        const close = () => { modal.style.display = 'none'; backdrop.style.display = 'none'; document.body.style.overflow = ''; };
+
+        openBtn?.addEventListener('click', open);
+        closeBtn?.addEventListener('click', close);
+        cancelBtn?.addEventListener('click', close);
+        backdrop?.addEventListener('click', close);
+        window.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
+
+        const flex = document.getElementById('af-flex');
+        const date = document.getElementById('af-datum');
+        flex?.addEventListener('change', () => { if (flex.checked) date.value = ''; });
+
+        const encodeWA = (text) => encodeURIComponent(text.replace(/\r\n/g, '\n').replace(/\r/g, '\n')).replace(/%0D%0A/g, '%0A').replace(/%0D/g, '%0A');
+        const getChecked = (name) => [...form.querySelectorAll(`input[name="${name}"]:checked`)].map(el => el.value);
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const spent = Date.now() - Number(t0.value || 0);
+            if (hp.value || spent < 2000) { alert('Er ging iets mis. Probeer het nogmaals.'); return; }
+
+            const naam = form.naam.value.trim();
+            const tel = form.telefoon.value.trim();
+            const adres = form.adres.value.trim();
+            const plaats = (form.plaats.value || 'Dinteloord').trim();
+            const diensten = getChecked('diensten[]');
+            const datum = form.flex.checked ? 'Datum in overleg' : (form.datum.value || '—');
+            const opm = form.opmerking.value.trim();
+
+            if (!naam || !tel || diensten.length === 0) {
+                alert('Vul minimaal Naam, Telefoon en één dienst in.'); return;
+            }
+
+            const lines = [
+                `Nieuwe afspraakaanvraag via ${SITE_NAME}:`,
+                ``,
+                `Naam: ${naam}`,
+                `Telefoon: ${tel}`,
+                `Adres: ${adres || '—'}`,
+                `Plaats: ${plaats || ''}`,
+                `Gekozen diensten:`,
+                `- ${(diensten.length ? diensten : ['— (niet opgegeven)']).join('\n- ')}`,
+                `Gewenste datum: ${datum}`,
+                `Datum flexibel: ${form.flex.checked ? 'Ja' : 'Nee'}`
+            ];
+            if (opm) lines.push(`Opmerking: ${opm}`);
+            lines.push(``, `Verstuurd via website.`);
+
+            const url = `https://wa.me/${WA_NUMBER}?text=${encodeWA(lines.join('\n'))}`;
+            window.open(url, '_blank', 'noopener');
+            close();
+        });
+    })();
+</script>
