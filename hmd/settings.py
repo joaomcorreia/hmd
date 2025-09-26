@@ -3,8 +3,15 @@ Django settings for hmd project.
 """
 
 from pathlib import Path
+from django.core.exceptions import ImproperlyConfigured
+import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+ADMIN_ASSETS_DIR = os.environ.get("ADMIN_ASSETS_DIR")
+if not ADMIN_ASSETS_DIR:
+    raise ImproperlyConfigured("Set ADMIN_ASSETS_DIR to the directory that holds admin static files.")
+ADMIN_ASSETS_DIR = Path(ADMIN_ASSETS_DIR)
 
 SECRET_KEY = 'django-insecure-g4%+x4o1=ojtwde@^_h81jp$2-71-oi5wp$4=+r+g!^7_2m@@w'
 DEBUG = True

@@ -1,28 +1,49 @@
 {% extends "admin/base_site.html" %}
 {% load static %}
-
+{% block branding %}
+<h1 id="site-name"><a href="{% url 'admin:index' %}">HMD Klusbedrijf — Admin</a></h1>
+{% endblock %}
 {% block content %}
+<div class="admin-sidebar">
+    <div class="module">
+        <h2>SUSBSCRIPTIONS</h2>
+        <ul class="actionlist">
+            <li><a href="{% url 'admin-tool' 'overview' %}">Overview</a></li>
+            <li><a href="{% url 'admin-tool' 'domain-name' %}">Domain Name</a></li>
+            <li><a href="{% url 'admin-tool' 'hosting' %}">Hosting</a></li>
+            <li><a href="{% url 'admin-tool' 'website' %}">Website</a></li>
+            <li><a href="{% url 'admin-tool' 'seo' %}">SEO</a></li>
+            <li><a href="{% url 'admin-tool' 'social-networks' %}">Social Networks</a></li>
+        </ul>
+
+        <h2>SETTINGS</h2>
+        <ul class="actionlist">
+            <li><a href="{% url 'admin-tool' 'all_settings' %}">Overview</a></li>
+        </ul>
+    </div>
+
+</div>
 <section class="pricing">
     <h2>Website Pakketten</h2>
     <div class="pricing-grid">
 
         <!-- Django Website -->
-        <div class="card">
-            <h3>Django Website</h3>
-            <p class="price">vanaf €1.499</p>
+
+        <div class="card-your-plan">
+            <h3>Your website</h3>
+            <p class="price">vanaf €-,--</p>
             <ul>
                 <li>Volledig maatwerk</li>
                 <li>Admin dashboard & AI assistent</li>
                 <li>Multi-language & multi-tenant</li>
                 <li>Inbegrepen supportplan</li>
             </ul>
-            <a href="#" class="btn">Start nu</a>
         </div>
-
+        <div class="your-plan"> </div>
         <!-- PHP / Static Website -->
         <div class="card">
             <h3>PHP / Statisch</h3>
-            <p class="price">vanaf €599</p>
+            <p class="price">vanaf €</p>
             <ul>
                 <li>Snel & lichtgewicht</li>
                 <li>Responsive design</li>
@@ -35,7 +56,7 @@
         <!-- WordPress Website -->
         <div class="card">
             <h3>WordPress</h3>
-            <p class="price">vanaf €799</p>
+            <p class="price">vanaf €</p>
             <ul>
                 <li>Bekend CMS</li>
                 <li>Themes & plugins</li>
@@ -48,7 +69,7 @@
         <!-- Online Store -->
         <div class="card">
             <h3>Online Store</h3>
-            <p class="price">vanaf €1.199</p>
+            <p class="price">vanaf €</p>
             <ul>
                 <li>WooCommerce of Django Shop</li>
                 <li>Betaalgateway integratie</li>
@@ -61,27 +82,27 @@
         <!-- Blog -->
         <div class="card">
             <h3>Blog</h3>
-            <p class="price">vanaf €499</p>
+            <p class="price">vanaf €</p>
             <ul>
                 <li>SEO geoptimaliseerd</li>
                 <li>Artikelen & categorieën</li>
                 <li>Social media integratie</li>
                 <li>Statistieken & analyse</li>
             </ul>
-            <a href="#" class="btn">Start nu</a>
+            <a href="#" class="btn">Start Nu</a>
         </div>
 
         <!-- One-Page Website -->
         <div class="card">
             <h3>One-Page Website</h3>
-            <p class="price">vanaf €399</p>
+            <p class="price">vanaf €</p>
             <ul>
                 <li>Snelle oplevering (1 dag)</li>
                 <li>Modern design</li>
                 <li>Inclusief Facebook & Instagram setup</li>
                 <li>Contactformulier / WhatsApp koppeling</li>
             </ul>
-            <a href="#" class="btn">Start nu</a>
+            <a href="#" class="btn">Start Nu</a>
         </div>
 
     </div>
@@ -91,6 +112,7 @@
 {% block extrahead %}
 {{ block.super }}
 <style>
+    /* Admin tools styles*/
     .pricing {
         padding: 40px;
         background: #f9f9f9;
@@ -111,6 +133,16 @@
         padding: 20px;
         text-align: left;
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    }
+
+    .card-your-plan {
+        background: #fff;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        padding: 20px;
+        text-align: left;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        grid-column: span 2;
     }
 
     .card h3 {
@@ -145,6 +177,16 @@
 
     .btn:hover {
         background: #333;
+    }
+
+    .admin-sidebar {
+        width: 220px;
+        float: left;
+        margin-right: 20px;
+    }
+
+    .your-plan {
+        grid-column: span 6;
     }
 </style>
 {% endblock %}

@@ -1,34 +1,491 @@
 {% extends "admin/base_site.html" %}
 {% block content %}
-<h1>Hosting</h1>
-<table class="adminlist">
-    <tr>
-        <th>Pakket</th>
-        <td>…</td>
-    </tr>
-    <tr>
-        <th>Provider</th>
-        <td>…</td>
-    </tr>
-    <tr>
-        <th>CPU / RAM</th>
-        <td>…</td>
-    </tr>
-    <tr>
-        <th>Opslag</th>
-        <td>…</td>
-    </tr>
-    <tr>
-        <th>Back-ups</th>
-        <td>Dagelijks</td>
-    </tr>
-    <tr>
-        <th>Vervaldatum</th>
-        <td>…</td>
-    </tr>
-    <tr>
-        <th>Opmerking</th>
-        <td>…</td>
-    </tr>
-</table>
+
+<style>
+    :root {
+        --jcw-bg: #fff;
+        --jcw-text: #1b1f23;
+        --jcw-muted: #6b7280;
+        --jcw-accent: #2156f3;
+        --jcw-border: #e5e7eb;
+    }
+
+    .plans {
+        max-width: 1200px;
+        margin: 32px auto;
+        padding: 0 16px;
+        display: grid;
+        gap: 24px
+    }
+
+    @media(min-width:900px) {
+        .plans {
+            grid-template-columns: repeat(3, 1fr)
+        }
+    }
+
+    .plan {
+        background: var(--jcw-bg);
+        border: 1px solid var(--jcw-border);
+        border-radius: 14px;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, .04);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column
+    }
+
+    .plan-header {
+        padding: 20px 20px 8px;
+        border-bottom: 1px solid var(--jcw-border)
+    }
+
+    .plan-title {
+        font: 600 18px/1.2 system-ui, Segoe UI, Roboto, Arial;
+        color: var(--jcw-text);
+        margin: 0
+    }
+
+    .plan-sub {
+        color: var(--jcw-muted);
+        font: 500 12px/1.4 system-ui;
+        margin-top: 6px;
+        text-transform: uppercase;
+        letter-spacing: .06em
+    }
+
+    .price {
+        padding: 16px 20px;
+        font: 700 28px/1 system-ui;
+        color: var(--jcw-accent)
+    }
+
+    .price small {
+        font: 600 12px;
+        color: var(--jcw-muted)
+    }
+
+    .specs {
+        width: 100%;
+        border-collapse: collapse
+    }
+
+    .specs tr {
+        border-bottom: 1px solid var(--jcw-border)
+    }
+
+    .specs td {
+        padding: 10px 16px;
+        font: 500 14px/1.45 system-ui;
+        color: var(--jcw-text)
+    }
+
+    .specs td:first-child {
+        width: 52%;
+        color: #374151
+    }
+
+    .foot {
+        padding: 16px 20px;
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap
+    }
+
+    .badge {
+        font: 700 11px/1 system-ui;
+        color: #0a7a20;
+        background: #e7f7ea;
+        border: 1px solid #c8efcf;
+        border-radius: 999px;
+        padding: 7px 10px
+    }
+
+    .btn {
+        margin-left: auto;
+        text-decoration: none;
+        background: var(--jcw-accent);
+        color: #fff;
+        font: 600 14px/1 system-ui;
+        padding: 10px 14px;
+        border-radius: 10px
+    }
+
+    .muted {
+        color: var(--jcw-muted);
+        font: 500 12px;
+        margin-left: auto
+    }
+
+    /* overview styles */
+
+    :root {
+        --primary: #1e4db7
+    }
+
+    .wrap {
+        max-width: 1100px;
+        margin: auto
+    }
+
+    .meta {
+        font-size: 12px;
+        color: #666;
+        margin-bottom: 16px
+    }
+
+    .legend {
+        display: flex;
+        gap: 12px;
+        font-size: 12px;
+        margin: 8px 0 16px
+    }
+
+    .pill {
+        display: inline-block;
+        padding: 2px 8px;
+        border-radius: 999px;
+        background: #eee
+    }
+
+    .pill.ok {
+        background: #e8f5e9;
+        color: #1b5e20
+    }
+
+    .pill.warn {
+        background: #fff8e1;
+        color: #8d6e00
+    }
+
+    .pill.bad {
+        background: #ffebee;
+        color: #b71c1c
+    }
+
+    .table-wrap {
+        overflow: auto;
+        border: 1px solid #e6e6e6;
+        border-radius: 10px;
+        background: #fff
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse
+    }
+
+    thead th {
+        text-align: left;
+        font-weight: 600;
+        font-size: 12px;
+        color: #555;
+        background: #f7f9fc;
+        border-bottom: 1px solid #e6e6e6;
+        padding: 10px
+    }
+
+    tbody td {
+        padding: 12px 10px;
+        border-bottom: 1px solid #f0f0f0;
+        vertical-align: top
+    }
+
+    tbody tr:hover {
+        background: #fafcff
+    }
+
+    .service {
+        font-weight: 600
+    }
+
+    .badge {
+        font-size: 12px;
+        padding: 2px 8px;
+        border: 1px solid #dcdcdc;
+        border-radius: 999px
+    }
+
+    .right {
+        text-align: right
+    }
+
+    .note {
+        color: #666;
+        font-size: 12px
+    }
+
+    @media (max-width:720px) {
+        thead {
+            display: none
+        }
+
+        tbody tr {
+            display: block;
+            padding: 10px;
+            border-bottom: 1px solid #eee
+        }
+
+        tbody td {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            border: 0;
+            padding: 8px 4px
+        }
+
+        tbody td::before {
+            content: attr(data-label);
+            font-weight: 600;
+            color: #555
+        }
+    }
+
+    .module {
+        float: left;
+        width: 200px;
+        margin-right: 20px
+    }
+
+    .active-plan {
+        color: #fff;
+    }
+
+    .open-panel {
+        margin-left: auto;
+        color: var(--jcw-accent);
+        font: 600 14px/1 system-ui;
+        cursor: pointer;
+        text-decoration: underline;
+        display: table;
+        padding: 10px 10px;
+        border-radius: 15px;
+        background-color: #1b5e20;
+    }
+
+    .open-panel a {
+        color: var(--jcw-bg);
+        text-decoration: none;
+        display: grid;
+    }
+</style>
+
+<div class="admin-sidebar">
+    <div class="module">
+        <h2>SUSBSCRIPTIONS</h2>
+        <ul class="actionlist">
+            <li><a href="{% url 'admin-tool' 'overview' %}">Overview</a></li>
+            <li><a href="{% url 'admin-tool' 'domain-name' %}">Domain Name</a></li>
+            <li><a href="{% url 'admin-tool' 'hosting' %}">Hosting</a></li>
+            <li><a href="{% url 'admin-tool' 'website' %}">Website</a></li>
+            <li><a href="{% url 'admin-tool' 'seo' %}">SEO</a></li>
+            <li><a href="{% url 'admin-tool' 'social-networks' %}">Social Networks</a></li>
+        </ul>
+        <h2>GOOGLE</h2>
+        <ul class="actionlist">
+            <li><a href="{% url 'admin-tool' 'all_settings' %}">Overview</a></li>
+        </ul>
+        <h2>FACEBOOK</h2>
+        <ul class="actionlist">
+            <li><a href="{% url 'admin-tool' 'all_settings' %}">Overview</a></li>
+        </ul>
+        <h2>USERS</h2>
+        <ul class="actionlist">
+            <li><a href="{% url 'admin-tool' 'all_settings' %}">Overview</a></li>
+        </ul>
+        <h2>SETTINGS</h2>
+        <ul class="actionlist">
+            <li><a href="{% url 'admin-tool' 'all_settings' %}">Overview</a></li>
+        </ul>
+    </div>
+</div>
+
+<!-- <h1>Hosting</h1> -->
+<!-- JCW Hosting Plans: HTML + CSS (drop into your page) -->
+
+<section class="plans" aria-label="Just Code Works Hosting Plans">
+
+    <!-- BASIC -->
+    <article class="plan" id="plan-basic">
+        <header class="plan-header">
+            <h3 class="plan-title">Basic Hosting</h3>
+            <div class="plan-sub">Self-managed • CyberPanel access</div>
+        </header>
+        <div class="price">€9,99 <small>/ maand</small></div>
+        <table class="specs" role="table" aria-label="Basic specs">
+            <tr>
+                <td>Websites</td>
+                <td>1 domein</td>
+            </tr>
+            <tr>
+                <td>Subdomeinen</td>
+                <td>5</td>
+            </tr>
+            <tr>
+                <td>E-mail accounts</td>
+                <td>5</td>
+            </tr>
+            <tr>
+                <td>Databases</td>
+                <td>1 MySQL</td>
+            </tr>
+            <tr>
+                <td>Opslag</td>
+                <td>10 GB SSD</td>
+            </tr>
+            <tr>
+                <td>Bandbreedte</td>
+                <td>100 GB / maand</td>
+            </tr>
+            <tr>
+                <td>SSL</td>
+                <td>Gratis Let’s Encrypt</td>
+            </tr>
+            <tr>
+                <td>Back-ups</td>
+                <td>Dagelijks / wekelijks</td>
+            </tr>
+            <tr>
+                <td>Tools</td>
+                <td>1-klik WordPress, PHP-selector, DNS & FTP</td>
+            </tr>
+            <tr>
+                <td>Uptime</td>
+                <td>99,9% SLA</td>
+            </tr>
+            <tr>
+                <td>Supportmodel</td>
+                <td>Zelfbeheer via CyberPanel</td>
+            </tr>
+        </table>
+        <div class="foot">
+            <span class="badge">Start</span>
+            <a class="btn" href="#order-basic"><span class="active-plan">Actief</span></a>
+            <div class="open-panel">
+                <p><a href="#">Open CyberPanel</a></p>
+            </div>
+        </div>
+    </article>
+
+    <!-- STANDARD -->
+    <article class="plan" id="plan-standard">
+        <header class="plan-header">
+            <h3 class="plan-title">Standard Hosting</h3>
+            <div class="plan-sub">Meer ruimte • Meerdere resources</div>
+        </header>
+        <div class="price">€14,99 <small>/ maand</small></div>
+        <table class="specs" role="table" aria-label="Standard specs">
+            <tr>
+                <td>Websites</td>
+                <td>2 domeinen</td>
+            </tr>
+            <tr>
+                <td>Subdomeinen</td>
+                <td>10</td>
+            </tr>
+            <tr>
+                <td>E-mail accounts</td>
+                <td>10</td>
+            </tr>
+            <tr>
+                <td>Databases</td>
+                <td>3 MySQL</td>
+            </tr>
+            <tr>
+                <td>Opslag</td>
+                <td>25 GB SSD</td>
+            </tr>
+            <tr>
+                <td>Bandbreedte</td>
+                <td>300 GB / maand</td>
+            </tr>
+            <tr>
+                <td>SSL</td>
+                <td>Gratis Let’s Encrypt</td>
+            </tr>
+            <tr>
+                <td>Back-ups</td>
+                <td>Dagelijks / wekelijks</td>
+            </tr>
+            <tr>
+                <td>Tools</td>
+                <td>1-klik installers, PHP-selector, Cron, DNS & FTP</td>
+            </tr>
+            <tr>
+                <td>Uptime</td>
+                <td>99,9% SLA</td>
+            </tr>
+            <tr>
+                <td>Supportmodel</td>
+                <td>Zelfbeheer • Basis assistentie per e-mail</td>
+            </tr>
+        </table>
+        <div class="foot">
+            <span class="badge">Meest gekozen</span>
+            <a class="btn" href="#order-standard">Kies Standard</a>
+        </div>
+    </article>
+
+    <!-- PREMIUM -->
+    <article class="plan" id="plan-premium">
+        <header class="plan-header">
+            <h3 class="plan-title">Premium Hosting</h3>
+            <div class="plan-sub">Voor groeiende sites en shops</div>
+        </header>
+        <div class="price">€24,99 <small>/ maand</small></div>
+        <table class="specs" role="table" aria-label="Premium specs">
+            <tr>
+                <td>Websites</td>
+                <td>5 domeinen</td>
+            </tr>
+            <tr>
+                <td>Subdomeinen</td>
+                <td>20</td>
+            </tr>
+            <tr>
+                <td>E-mail accounts</td>
+                <td>25</td>
+            </tr>
+            <tr>
+                <td>Databases</td>
+                <td>5 MySQL</td>
+            </tr>
+            <tr>
+                <td>Opslag</td>
+                <td>60 GB SSD</td>
+            </tr>
+            <tr>
+                <td>Bandbreedte</td>
+                <td>800 GB / maand</td>
+            </tr>
+            <tr>
+                <td>SSL</td>
+                <td>Gratis Let’s Encrypt</td>
+            </tr>
+            <tr>
+                <td>Back-ups</td>
+                <td>Dagelijks / wekelijks</td>
+            </tr>
+            <tr>
+                <td>Tools</td>
+                <td>1-klik installers, PHP-selector, Cron, DNS & FTP</td>
+            </tr>
+            <tr>
+                <td>Uptime</td>
+                <td>99,9% SLA</td>
+            </tr>
+            <tr>
+                <td>Supportmodel</td>
+                <td>Zelfbeheer • Prioriteit e-mail</td>
+            </tr>
+        </table>
+        <div class="foot">
+            <span class="badge">Schaalbaar</span>
+            <a class="btn" href="#order-premium">Kies Premium</a>
+        </div>
+    </article>
+
+</section>
+
+
+
 {% endblock %}

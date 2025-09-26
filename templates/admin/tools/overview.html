@@ -1,6 +1,10 @@
 {% extends "admin/base_site.html" %}
 {% load static %}
 
+{% block branding %}
+<h1 id="site-name"><a href="{% url 'admin:index' %}">HMD Klusbedrijf — Admin</a></h1>
+{% endblock %}
+
 {% block extrastyle %}{{ block.super }}
 <style>
     :root {
@@ -145,10 +149,26 @@
             <li><a href="{% url 'admin-tool' 'seo' %}">SEO</a></li>
             <li><a href="{% url 'admin-tool' 'social-networks' %}">Social Networks</a></li>
         </ul>
+        <h2>GOOGLE</h2>
+        <ul class="actionlist">
+            <li><a href="{% url 'admin-tool' 'all_settings' %}">Overview</a></li>
+        </ul>
+        <h2>FACEBOOK</h2>
+        <ul class="actionlist">
+            <li><a href="{% url 'admin-tool' 'all_settings' %}">Overview</a></li>
+        </ul>
+        <h2>USERS</h2>
+        <ul class="actionlist">
+            <li><a href="{% url 'admin-tool' 'all_settings' %}">Overview</a></li>
+        </ul>
+        <h2>SETTINGS</h2>
+        <ul class="actionlist">
+            <li><a href="{% url 'admin-tool' 'all_settings' %}">Overview</a></li>
+        </ul>
     </div>
 
     <div class="wrap">
-        <h1>Subscriptions</h1>
+        <h1>Subscriptions Overview</h1>
         <div class="meta">Laatst bijgewerkt: <span id="updated"></span></div>
 
         <div class="legend">
@@ -173,16 +193,9 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td class="service" data-label="Service">Website</td>
-                        <td data-label="Plan"><span class="badge">Multipage</span></td>
-                        <td data-label="Start">28-07-2025</td>
-                        <td data-label="Vervalt op">Lifetime</td>
-                        <td data-label="Status"><span class="pill ok">Actief</span></td>
-                        <td class="right" data-label="Prijs / mnd">Lifetime</td>
-                        <td data-label="Opmerking" class="note"><a href="#">Eerst Klant Actie</a></td>
-                    </tr>
-                    <tr>
-                        <td class="service" data-label="Service">Hosting</td>
+                        <td class="service" data-label="Service">
+                            <a href="#">Website
+                        <td class="service" data-label="Service">MultiPage</td>
                         <td data-label="Plan"><span class="badge">Basic</span></td>
                         <td data-label="Start">28-07-2025</td>
                         <td data-label="Vervalt op">28-07-2026</td>

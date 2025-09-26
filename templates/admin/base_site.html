@@ -1,10 +1,16 @@
 {% extends "admin/base.html" %}
-{% block extrastyle %}{{ block.super }}
+{% load i18n static %}
+{% block title %}HMD Admin{% endblock %}
+
+{% block branding %}
+<!-- BRANDING OVERRIDE ACTIVE -->
+<h1 id="site-name"><a href="{% url 'admin:index' %}">HMD Klusbedrijf — Admin</a></h1>
 <style>
-    #nav-sidebar {
-        max-height: none;
-        height: auto;
-        overflow: auto
+    #header #site-name {
+        display: block !important;
+        visibility: visible !important
     }
 </style>
 {% endblock %}
+
+{% block nav-global %}{% endblock %}

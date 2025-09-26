@@ -1,26 +1,203 @@
 {% extends "admin/base_site.html" %}
 {% block content %}
-<h1>SEO Plan</h1>
-<table class="adminlist">
-    <tr>
-        <th>Plan</th>
-        <td>…</td>
-    </tr>
-    <tr>
-        <th>Maanduren</th>
-        <td>…</td>
-    </tr>
-    <tr>
-        <th>Doelen</th>
-        <td>…</td>
-    </tr>
-    <tr>
-        <th>Volgende review</th>
-        <td>…</td>
-    </tr>
-    <tr>
-        <th>Opmerking</th>
-        <td>…</td>
-    </tr>
+<style>
+    :root {
+        --b: #e5e7eb;
+        --bg: #fff;
+        --mut: #6b7280;
+        --hi: #eef2ff;
+        --hib: #c7d2fe;
+        --prime: #1d4ed8
+    }
+
+    .seo-plans {
+        width: 100%;
+        border-collapse: collapse;
+        font: 14px/1.45 system-ui, Segoe UI, Roboto, Arial;
+        color: #fff;
+    }
+
+    .seo-plans th,
+    .seo-plans td {
+        border: 1px solid var(--b);
+        padding: 10px 12px;
+        vertical-align: top;
+        background: var(--bg)
+    }
+
+    .seo-plans thead th {
+        background: #f8fafc;
+        text-align: left
+    }
+
+    .seo-plans .active-col,
+    .seo-plans td:nth-child(3),
+    .seo-plans th:nth-child(3) {
+        background: var(--hi);
+        border-color: var(--hib)
+    }
+
+    .pill {
+        display: inline-block;
+        margin-left: 6px;
+        font: 700 11px/1 system-ui;
+        color: var(--prime);
+        background: #e0e7ff;
+        border: 1px solid var(--hib);
+        border-radius: 999px;
+        padding: 3px 8px
+    }
+
+
+
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --b: #e0e6ee;
+            --bg: #0f1115;
+            --mut: #9aa3af;
+            --hi: #111827;
+            --hib: #374151;
+            --prime: #60a5fa
+        }
+
+        .seo-plans thead th {
+            background: #111318;
+            color: #fff;
+        }
+    }
+
+    /* sidebar styles */
+    .admin-sidebar {
+        width: 220px;
+        float: left;
+        margin-right: 20px;
+    }
+</style>
+<div class="admin-sidebar">
+    <div class="module">
+        <h2>SUSBSCRIPTIONS</h2>
+        <ul class="actionlist">
+            <li><a href="{% url 'admin-tool' 'overview' %}">Overview</a></li>
+            <li><a href="{% url 'admin-tool' 'domain-name' %}">Domain Name</a></li>
+            <li><a href="{% url 'admin-tool' 'hosting' %}">Hosting</a></li>
+            <li><a href="{% url 'admin-tool' 'website' %}">Website</a></li>
+            <li><a href="{% url 'admin-tool' 'seo' %}">SEO</a></li>
+            <li><a href="{% url 'admin-tool' 'social-networks' %}">Social Networks</a></li>
+        </ul>
+        <h2>GOOGLE</h2>
+        <ul class="actionlist">
+            <li><a href="{% url 'admin-tool' 'all_settings' %}">Overview</a></li>
+        </ul>
+        <h2>FACEBOOK</h2>
+        <ul class="actionlist">
+            <li><a href="{% url 'admin-tool' 'all_settings' %}">Overview</a></li>
+        </ul>
+        <h2>USERS</h2>
+        <ul class="actionlist">
+            <li><a href="{% url 'admin-tool' 'all_settings' %}">Overview</a></li>
+        </ul>
+        <h2>SETTINGS</h2>
+        <ul class="actionlist">
+            <li><a href="{% url 'admin-tool' 'all_settings' %}">Overview</a></li>
+        </ul>
+    </div>
+</div>
+<table class="seo-plans" aria-label="SEO plan vergelijking">
+    <thead>
+        <tr>
+            <th>Feature</th>
+            <th>Starter (Local)</th>
+            <th class="active-col">Growth (Regional) <span class="pill">Active</span></th>
+            <th>Pro (EU-wide)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Target area</td>
+            <td>1 city/municipality</td>
+            <td>Multi-city binnen ±50 km</td>
+            <td>27-EU dekking (land + grote steden)</td>
+        </tr>
+        <tr>
+            <td>Services covered</td>
+            <td>tot 8 servicepagina’s</td>
+            <td>tot 20 servicepagina’s</td>
+            <td>30+ services (gefaseerd)</td>
+        </tr>
+        <tr>
+            <td>Locations targeted</td>
+            <td>1–3 lokale gebieden</td>
+            <td>10–25 steden/dorpen in 50 km</td>
+            <td>Landpagina’s per EU-land + 10–20 steden/maand</td>
+        </tr>
+        <tr>
+            <td>Languages</td>
+            <td>1</td>
+            <td>1 (optie +1)</td>
+            <td>5–10 talen met <code>hreflang</code></td>
+        </tr>
+        <tr>
+            <td>On-page content</td>
+            <td>Titels, meta’s, H1–H3, 300–500 woorden/service</td>
+            <td>Titels, meta’s, H1–H3, 500–800 woorden/service + unieke stadsintro’s</td>
+            <td>800–1200 woorden/service + land/stad landingscontent</td>
+        </tr>
+        <tr>
+            <td>Structured data (JSON-LD)</td>
+            <td><code>LocalBusiness</code>, <code>Service</code>, <code>BreadcrumbList</code></td>
+            <td>LocalBusiness + Service per pagina + <code>areaServed</code></td>
+            <td>Organization + multi-locale LocalBusiness, Service per locale, <code>Offer</code>, hreflang-alternates
+            </td>
+        </tr>
+        <tr>
+            <td>Technical SEO</td>
+            <td>Sitemap, robots, canonical, image alt, basis CWV</td>
+            <td>Starter + schema-validatie, intern-linkplan, 404/redirect audit</td>
+            <td>Growth + multi-locale sitemaps, subfolder/subdomain strategie, crawl-budget tuning</td>
+        </tr>
+        <tr>
+            <td>Local SEO</td>
+            <td>GBP setup/optimalisatie (1 listing)</td>
+            <td>GBP optimalisatie + posts & Q&amp;A; NL-citations</td>
+            <td>GBP voor verifieerbare locaties; pan-EU citations indien mogelijk</td>
+        </tr>
+        <tr>
+            <td>Content per maand</td>
+            <td>1 blog/artikel</td>
+            <td>2–3 blogs + 2–4 locatiepagina’s</td>
+            <td>4–8 blogs + 10–20 stadspagina’s (gefaseerd)</td>
+        </tr>
+        <tr>
+            <td>Link acquisition</td>
+            <td>5–10 lokale citations</td>
+            <td>15–30 citations + outreach lokale directories</td>
+            <td>Authority outreach EU-verticals; digital PR (targets afgesproken)</td>
+        </tr>
+        <tr>
+            <td>Keyword tracking</td>
+            <td>tot 50 termen</td>
+            <td>tot 200 termen</td>
+            <td>tot 1.000 termen (per land/taal segment)</td>
+        </tr>
+        <tr>
+            <td>Reporting</td>
+            <td>Maandelijkse samenvatting</td>
+            <td>Maandrapport + acties</td>
+            <td>Wekelijkse KPI-snapshot + maandelijkse deep-dive</td>
+        </tr>
+        <tr>
+            <td>Setup window</td>
+            <td>2 weken</td>
+            <td>3–5 weken</td>
+            <td>6–12 weken gefaseerd (land-waves)</td>
+        </tr>
+        <tr>
+            <td>Maintenance</td>
+            <td>Per kwartaal bijsturen</td>
+            <td>Maandelijks bijsturen</td>
+            <td>Doorlopend optimaliseren</td>
+        </tr>
+    </tbody>
 </table>
+
 {% endblock %}
