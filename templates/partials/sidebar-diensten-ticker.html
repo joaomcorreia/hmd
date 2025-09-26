@@ -116,7 +116,7 @@
   (function () {
     var vp = document.getElementById('dienstenTicker'); if (!vp) return;
     var track = vp.querySelector('.ticker-track'); var items = [...track.children];
-    var visible = 3, timer = null, animating = false;
+    var visible = 4, timer = null, animating = false;
 
     function outerH(el) { var cs = getComputedStyle(el); return el.offsetHeight + parseFloat(cs.marginTop) + parseFloat(cs.marginBottom) }
     function setViewportHeight() { var sum = 0; for (var k = 0; k < Math.min(visible, items.length); k++) sum += outerH(track.children[k]); vp.style.height = sum + 'px' }

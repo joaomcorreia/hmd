@@ -1,17 +1,22 @@
 """
 Django settings for hmd project.
 """
-
 from pathlib import Path
 from django.core.exceptions import ImproperlyConfigured
 import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# One level above the project (override via env on server)
+WORKSPACE_DIR = Path(os.environ.get("HMD_WORKSPACE_DIR", BASE_DIR.parent))
+
+# External admin assets and templates
 ADMIN_ASSETS_DIR = os.environ.get("ADMIN_ASSETS_DIR")
 if not ADMIN_ASSETS_DIR:
     raise ImproperlyConfigured("Set ADMIN_ASSETS_DIR to the directory that holds admin static files.")
 ADMIN_ASSETS_DIR = Path(ADMIN_ASSETS_DIR)
+
+ADMIN_TEMPLATES_DIR = WORKSPACE_DIR / "admin_templates"  # must contain "admin/..." inside
 
 SECRET_KEY = 'django-insecure-g4%+x4o1=ojtwde@^_h81jp$2-71-oi5wp$4=+r+g!^7_2m@@w'
 DEBUG = True
@@ -25,8 +30,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "pages",   # back again
-    "core", 
+    "pages",
+    "core",
 ]
 
 MIDDLEWARE = [
@@ -44,7 +49,10 @@ ROOT_URLCONF = "hmd.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [BASE_DIR / "templates"],
+        "DIRS": [
+            BASE_DIR / "templates",
+            ADMIN_TEMPLATES_DIR,   # ← external admin templates
+        ],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -56,6 +64,7 @@ TEMPLATES = [
     },
 ]
 
+# extra context processors
 TEMPLATES[0]["OPTIONS"]["context_processors"] += [
     "core.context_processors.site_constants",
     "core.context_processors.diensten_ticker",
@@ -82,8 +91,12 @@ TIME_ZONE = "Europe/Amsterdam"
 USE_I18N = True
 USE_TZ = True
 
-STATIC_URL = "static/"
-STATICFILES_DIRS = [BASE_DIR / "static"]
+STATIC_URL = "/static/"
+STATIC_ROOT = BASE_DIR / "staticfiles"
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+    ADMIN_ASSETS_DIR,  # ← external admin static (keep "admin/..." structure inside)
+]
 
 MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"

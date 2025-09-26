@@ -1,9 +1,14 @@
 {% extends "admin/base_site.html" %}
 {% load static %}
-{% block branding %}
-<h1 id="site-name"><a href="{% url 'admin:index' %}">HMD Klusbedrijf — Admin</a></h1>
+
+{% block extrastyle %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static 'css/admin_main_styles.css' %}">
 {% endblock %}
+
 {% block content %}
+
+
 <div class="admin-sidebar">
     <div class="module">
         <h2>SUSBSCRIPTIONS</h2>
@@ -111,82 +116,5 @@
 
 {% block extrahead %}
 {{ block.super }}
-<style>
-    /* Admin tools styles*/
-    .pricing {
-        padding: 40px;
-        background: #f9f9f9;
-        text-align: center;
-    }
 
-    .pricing-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-        gap: 20px;
-        margin-top: 30px;
-    }
-
-    .card {
-        background: #fff;
-        border: 1px solid #ddd;
-        border-radius: 10px;
-        padding: 20px;
-        text-align: left;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-    }
-
-    .card-your-plan {
-        background: #fff;
-        border: 1px solid #ddd;
-        border-radius: 10px;
-        padding: 20px;
-        text-align: left;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-        grid-column: span 2;
-    }
-
-    .card h3 {
-        margin-top: 0;
-        color: #1c242b;
-    }
-
-    .card .price {
-        font-size: 1.5rem;
-        font-weight: bold;
-        margin: 10px 0 15px;
-        color: #ca6483;
-    }
-
-    .card ul {
-        padding-left: 20px;
-        margin: 0 0 20px;
-    }
-
-    .card ul li {
-        margin: 6px 0;
-    }
-
-    .btn {
-        display: inline-block;
-        padding: 8px 16px;
-        border-radius: 6px;
-        background: #1c242b;
-        color: #fff;
-        text-decoration: none;
-    }
-
-    .btn:hover {
-        background: #333;
-    }
-
-    .admin-sidebar {
-        width: 220px;
-        float: left;
-        margin-right: 20px;
-    }
-
-    .your-plan {
-        grid-column: span 6;
-    }
-</style>
 {% endblock %}

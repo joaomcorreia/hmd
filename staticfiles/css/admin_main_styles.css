@@ -1,0 +1,669 @@
+/* OVERVIEW ADMIN PAGE PRICING TABLE STYLES */
+
+:root {
+    --primary: #1e4db7
+}
+
+.wrap {
+    max-width: 1100px;
+    margin: auto
+}
+
+.meta {
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 16px
+}
+
+.legend {
+    display: flex;
+    gap: 12px;
+    font-size: 12px;
+    margin: 8px 0 16px
+}
+
+.pill {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 999px;
+    background: #eee
+}
+
+.pill.ok {
+    background: #e8f5e9;
+    color: #1b5e20
+}
+
+.pill.warn {
+    background: #fff8e1;
+    color: #8d6e00
+}
+
+.pill.bad {
+    background: #ffebee;
+    color: #b71c1c
+}
+
+.table-wrap {
+    overflow: auto;
+    border: 1px solid #e6e6e6;
+    border-radius: 10px;
+    background: #fff
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse
+}
+
+thead th {
+    text-align: left;
+    font-weight: 600;
+    font-size: 12px;
+    color: #555;
+    background: #f7f9fc;
+    border-bottom: 1px solid #e6e6e6;
+    padding: 10px
+}
+
+tbody td {
+    padding: 12px 10px;
+    border-bottom: 1px solid #f0f0f0;
+    vertical-align: top
+}
+
+tbody tr:hover {
+    background: #fafcff
+}
+
+.service {
+    font-weight: 600
+}
+
+.badge {
+    font-size: 12px;
+    padding: 2px 8px;
+    border: 1px solid #dcdcdc;
+    border-radius: 999px
+}
+
+.right {
+    text-align: right
+}
+
+.note {
+    color: #666;
+    font-size: 12px
+}
+
+@media (max-width:720px) {
+    thead {
+        display: none
+    }
+
+    tbody tr {
+        display: block;
+        padding: 10px;
+        border-bottom: 1px solid #eee
+    }
+
+    tbody td {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        border: 0;
+        padding: 8px 4px
+    }
+
+    tbody td::before {
+        content: attr(data-label);
+        font-weight: 600;
+        color: #555
+    }
+}
+
+.module {
+    float: left;
+    width: 200px;
+    margin-right: 20px
+}
+
+/* ==================================*/
+
+/* Hosting styles pricing table styles */
+:root {
+    --jcw-bg: #fff;
+    --jcw-text: #1b1f23;
+    --jcw-muted: #6b7280;
+    --jcw-accent: #2156f3;
+    --jcw-border: #e5e7eb;
+}
+
+.plans {
+    max-width: 1200px;
+    margin: 32px auto;
+    padding: 0 16px;
+    display: grid;
+    gap: 24px
+}
+
+@media(min-width:900px) {
+    .plans {
+        grid-template-columns: repeat(3, 1fr)
+    }
+}
+
+.plan {
+    background: var(--jcw-bg);
+    border: 1px solid var(--jcw-border);
+    border-radius: 14px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, .04);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column
+}
+
+.plan-header {
+    padding: 20px 20px 8px;
+    border-bottom: 1px solid var(--jcw-border)
+}
+
+.plan-title {
+    font: 600 18px/1.2 system-ui, Segoe UI, Roboto, Arial;
+    color: var(--jcw-text);
+    margin: 0
+}
+
+.plan-sub {
+    color: var(--jcw-muted);
+    font: 500 12px/1.4 system-ui;
+    margin-top: 6px;
+    text-transform: uppercase;
+    letter-spacing: .06em
+}
+
+.price {
+    padding: 16px 20px;
+    font: 700 28px/1 system-ui;
+    color: var(--jcw-accent)
+}
+
+.price small {
+    font: 600 12px;
+    color: var(--jcw-muted)
+}
+
+.specs {
+    width: 100%;
+    border-collapse: collapse
+}
+
+.specs tr {
+    border-bottom: 1px solid var(--jcw-border)
+}
+
+.specs td {
+    padding: 10px 16px;
+    font: 500 14px/1.45 system-ui;
+    color: var(--jcw-text)
+}
+
+.specs td:first-child {
+    width: 52%;
+    color: #374151
+}
+
+.foot {
+    padding: 16px 20px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap
+}
+
+.badge {
+    font: 700 11px/1 system-ui;
+    color: #0a7a20;
+    background: #e7f7ea;
+    border: 1px solid #c8efcf;
+    border-radius: 999px;
+    padding: 7px 10px
+}
+
+.btn {
+    margin-left: auto;
+    text-decoration: none;
+    background: var(--jcw-accent);
+    color: #fff;
+    font: 600 14px/1 system-ui;
+    padding: 10px 14px;
+    border-radius: 10px
+}
+
+.muted {
+    color: var(--jcw-muted);
+    font: 500 12px;
+    margin-left: auto
+}
+
+/* overview styles */
+
+:root {
+    --primary: #1e4db7
+}
+
+.wrap {
+    max-width: 1100px;
+    margin: auto
+}
+
+.meta {
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 16px
+}
+
+.legend {
+    display: flex;
+    gap: 12px;
+    font-size: 12px;
+    margin: 8px 0 16px
+}
+
+.pill {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 999px;
+    background: #eee
+}
+
+.pill.ok {
+    background: #e8f5e9;
+    color: #1b5e20
+}
+
+.pill.warn {
+    background: #fff8e1;
+    color: #8d6e00
+}
+
+.pill.bad {
+    background: #ffebee;
+    color: #b71c1c
+}
+
+.table-wrap {
+    overflow: auto;
+    border: 1px solid #e6e6e6;
+    border-radius: 10px;
+    background: #fff
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse
+}
+
+thead th {
+    text-align: left;
+    font-weight: 600;
+    font-size: 12px;
+    color: #555;
+    background: #f7f9fc;
+    border-bottom: 1px solid #e6e6e6;
+    padding: 10px
+}
+
+tbody td {
+    padding: 12px 10px;
+    border-bottom: 1px solid #f0f0f0;
+    vertical-align: top
+}
+
+tbody tr:hover {
+    background: #fafcff
+}
+
+.service {
+    font-weight: 600
+}
+
+.badge {
+    font-size: 12px;
+    padding: 2px 8px;
+    border: 1px solid #dcdcdc;
+    border-radius: 999px
+}
+
+.right {
+    text-align: right
+}
+
+.note {
+    color: #666;
+    font-size: 12px
+}
+
+@media (max-width:720px) {
+    thead {
+        display: none
+    }
+
+    tbody tr {
+        display: block;
+        padding: 10px;
+        border-bottom: 1px solid #eee
+    }
+
+    tbody td {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        border: 0;
+        padding: 8px 4px
+    }
+
+    tbody td::before {
+        content: attr(data-label);
+        font-weight: 600;
+        color: #555
+    }
+}
+
+.active-plan {
+    color: #fff;
+}
+
+.open-panel {
+    margin-left: auto;
+    color: var(--jcw-accent);
+    font: 600 14px/1 system-ui;
+    cursor: pointer;
+    text-decoration: underline;
+    display: table;
+    padding: 10px 10px;
+    border-radius: 15px;
+    background-color: #1b5e20;
+}
+
+.open-panel a {
+    color: var(--jcw-bg);
+    text-decoration: none;
+    display: grid;
+}
+
+/* WEBSITE PRICING TABLE */
+
+/* Admin tools styles*/
+.pricing {
+    padding: 40px;
+    background: #f9f9f9;
+    text-align: center;
+}
+
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: left;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.card-your-plan {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: left;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    grid-column: span 2;
+}
+
+.card h3 {
+    margin-top: 0;
+    color: #1c242b;
+}
+
+.card .price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 10px 0 15px;
+    color: #ca6483;
+}
+
+.card ul {
+    padding-left: 20px;
+    margin: 0 0 20px;
+}
+
+.card ul li {
+    margin: 6px 0;
+}
+
+.btn {
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 6px;
+    background: #1c242b;
+    color: #fff;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background: #333;
+}
+
+.admin-sidebar {
+    width: 220px;
+    float: left;
+    margin-right: 20px;
+}
+
+.your-plan {
+    grid-column: span 6;
+}
+
+/* seo styling pricing tables */
+
+:root {
+    --b: #e5e7eb;
+    --bg: #fff;
+    --mut: #6b7280;
+    --hi: #eef2ff;
+    --hib: #c7d2fe;
+    --prime: #1d4ed8
+}
+
+.seo-plans {
+    width: 100%;
+    border-collapse: collapse;
+    font: 14px/1.45 system-ui, Segoe UI, Roboto, Arial;
+    color: #fff;
+}
+
+.seo-plans th,
+.seo-plans td {
+    border: 1px solid var(--b);
+    padding: 10px 12px;
+    vertical-align: top;
+    background: var(--bg)
+}
+
+.seo-plans thead th {
+    background: #f8fafc;
+    text-align: left
+}
+
+.seo-plans .active-col,
+.seo-plans td:nth-child(3),
+.seo-plans th:nth-child(3) {
+    background: var(--hi);
+    border-color: var(--hib)
+}
+
+.pill {
+    display: inline-block;
+    margin-left: 6px;
+    font: 700 11px/1 system-ui;
+    color: var(--prime);
+    background: #e0e7ff;
+    border: 1px solid var(--hib);
+    border-radius: 999px;
+    padding: 3px 8px
+}
+
+
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --b: #e0e6ee;
+        --bg: #0f1115;
+        --mut: #9aa3af;
+        --hi: #111827;
+        --hib: #374151;
+        --prime: #60a5fa
+    }
+
+    .seo-plans thead th {
+        background: #111318;
+        color: #fff;
+    }
+}
+
+/* sidebar styles */
+.admin-sidebar {
+    width: 220px;
+    float: left;
+    margin-right: 20px;
+}
+
+/* domain name tables styles */
+
+:root {
+    --primary: #1e4db7
+}
+
+.wrap {
+    max-width: 1100px;
+    margin: auto
+}
+
+.meta {
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 16px
+}
+
+.legend {
+    display: flex;
+    gap: 12px;
+    font-size: 12px;
+    margin: 8px 0 16px
+}
+
+.pill {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 999px;
+    background: #eee
+}
+
+.pill.ok {
+    background: #e8f5e9;
+    color: #1b5e20
+}
+
+.pill.warn {
+    background: #fff8e1;
+    color: #8d6e00
+}
+
+.pill.bad {
+    background: #ffebee;
+    color: #b71c1c
+}
+
+.table-wrap {
+    overflow: auto;
+    border: 1px solid #e6e6e6;
+    border-radius: 10px;
+    background: #fff
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse
+}
+
+thead th {
+    text-align: left;
+    font-weight: 600;
+    font-size: 12px;
+    color: #555;
+    background: #f7f9fc;
+    border-bottom: 1px solid #e6e6e6;
+    padding: 10px
+}
+
+tbody td {
+    padding: 12px 10px;
+    border-bottom: 1px solid #f0f0f0;
+    vertical-align: top
+}
+
+tbody tr:hover {
+    background: #fafcff
+}
+
+.service {
+    font-weight: 600
+}
+
+.badge {
+    font-size: 12px;
+    padding: 2px 8px;
+    border: 1px solid #dcdcdc;
+    border-radius: 999px
+}
+
+.right {
+    text-align: right
+}
+
+.note {
+    color: #666;
+    font-size: 12px
+}
+
+@media (max-width:720px) {
+    thead {
+        display: none
+    }
+
+    tbody tr {
+        display: block;
+        padding: 10px;
+        border-bottom: 1px solid #eee
+    }
+
+    tbody td {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        border: 0;
+        padding: 8px 4px
+    }
+
+    tbody td::before {
+        content: attr(data-label);
+        font-weight: 600;
+        color: #555
+    }
+}

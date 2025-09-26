@@ -1,78 +1,13 @@
 {% extends "admin/base_site.html" %}
+{% load static %}
+
+{% block extrastyle %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static 'css/admin_main_styles.css' %}">
+{% endblock %}
+
 {% block content %}
-<style>
-    :root {
-        --b: #e5e7eb;
-        --bg: #fff;
-        --mut: #6b7280;
-        --hi: #eef2ff;
-        --hib: #c7d2fe;
-        --prime: #1d4ed8
-    }
 
-    .seo-plans {
-        width: 100%;
-        border-collapse: collapse;
-        font: 14px/1.45 system-ui, Segoe UI, Roboto, Arial;
-        color: #fff;
-    }
-
-    .seo-plans th,
-    .seo-plans td {
-        border: 1px solid var(--b);
-        padding: 10px 12px;
-        vertical-align: top;
-        background: var(--bg)
-    }
-
-    .seo-plans thead th {
-        background: #f8fafc;
-        text-align: left
-    }
-
-    .seo-plans .active-col,
-    .seo-plans td:nth-child(3),
-    .seo-plans th:nth-child(3) {
-        background: var(--hi);
-        border-color: var(--hib)
-    }
-
-    .pill {
-        display: inline-block;
-        margin-left: 6px;
-        font: 700 11px/1 system-ui;
-        color: var(--prime);
-        background: #e0e7ff;
-        border: 1px solid var(--hib);
-        border-radius: 999px;
-        padding: 3px 8px
-    }
-
-
-
-    @media (prefers-color-scheme: dark) {
-        :root {
-            --b: #e0e6ee;
-            --bg: #0f1115;
-            --mut: #9aa3af;
-            --hi: #111827;
-            --hib: #374151;
-            --prime: #60a5fa
-        }
-
-        .seo-plans thead th {
-            background: #111318;
-            color: #fff;
-        }
-    }
-
-    /* sidebar styles */
-    .admin-sidebar {
-        width: 220px;
-        float: left;
-        margin-right: 20px;
-    }
-</style>
 <div class="admin-sidebar">
     <div class="module">
         <h2>SUSBSCRIPTIONS</h2>

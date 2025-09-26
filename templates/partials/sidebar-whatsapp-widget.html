@@ -1,30 +1,25 @@
-<?php
-$wa_number_e164 = '31687111289'; // no + or spaces
-$tel_e164       = '+31687111289';
-$display_phone  = '+31 6 87111289';
-?>
+{% with wa_number="31687111289" tel_e164="+31687111289" display_phone="+31 6 87111289" %}
 <div class="widget bg-white p-a20 bdr-1 bdr-solid bdr-gray wa-widget">
   <h4 class="widget-title m-b15"><i class="fa fa-whatsapp"></i> WhatsApp</h4>
   <p class="m-b15">Stel uw vraag direct via WhatsApp. We reageren vlot.</p>
 
-  <a id="wa-link" class="btn btn-success btn-block" href="https://wa.me/<?php echo $wa_number_e164; ?>" target="_blank"
-    rel="noopener" aria-label="Chat op WhatsApp met HMD Klusbedrijf">
+  <a id="wa-link" class="btn btn-success btn-block" href="https://wa.me/{{ wa_number }}" data-wa-number="{{ wa_number }}"
+    target="_blank" rel="noopener" aria-label="Chat op WhatsApp met HMD Klusbedrijf">
     <i class="fa fa-whatsapp"></i> Chat op WhatsApp
   </a>
 
   <div class="m-t10">
-    <small>Of bel: <a href="tel:<?php echo $tel_e164; ?>">
-        <?php echo $display_phone; ?>
-      </a></small>
+    <small>Of bel: <a href="tel:{{ tel_e164 }}">{{ display_phone }}</a></small>
   </div>
 </div>
 
 <script>
   (function () {
-    var a = document.getElementById('wa-link');
-    if (!a) return;
-    var base = 'https://wa.me/<?php echo $wa_number_e164; ?>';
-    var msg = 'Hoi, ik heb een vraag over: ' + document.title + ' — ' + window.location.href;
-    a.href = base + '?text=' + encodeURIComponent(msg);
+    var link = document.getElementById('wa-link');
+    if (!link) return;
+    var base = 'https://wa.me/' + (link.dataset.waNumber || '{{ wa_number }}');
+    var msg = 'Hoi, ik heb een vraag over: ' + document.title + ' - ' + window.location.href;
+    link.href = base + '?text=' + encodeURIComponent(msg);
   })();
 </script>
+{% endwith %}
