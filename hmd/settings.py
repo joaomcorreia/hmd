@@ -20,7 +20,7 @@ ADMIN_TEMPLATES_DIR = WORKSPACE_DIR / "admin_templates"  # must contain "admin/.
 
 SECRET_KEY = 'django-insecure-g4%+x4o1=ojtwde@^_h81jp$2-71-oi5wp$4=+r+g!^7_2m@@w'
 DEBUG = True
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["test1.hmdklusbedrijf.nl"]
 
 INSTALLED_APPS = [
     "analytics.apps.AnalyticsConfig",
@@ -92,21 +92,21 @@ USE_I18N = True
 USE_TZ = True
 
 STATIC_URL = "/static/"
-STATIC_ROOT = BASE_DIR / "staticfiles"
+STATIC_ROOT = BASE_DIR / "srv/app/staticfiles"
 STATICFILES_DIRS = [
     BASE_DIR / "static",
     ADMIN_ASSETS_DIR,  # ← external admin static (keep "admin/..." structure inside)
 ]
 
 MEDIA_URL = "/media/"
-MEDIA_ROOT = BASE_DIR / "media"
+MEDIA_ROOT = BASE_DIR / "/srv/app/media"
 
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = "justcodeworks@gmail.com"
-EMAIL_HOST_PASSWORD = "your-16-char-app-password"
+EMAIL_HOST_PASSWORD = "(CortX300)[Fender])"
 DEFAULT_FROM_EMAIL = "noreply@localhost"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"

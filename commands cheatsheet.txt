@@ -4,4 +4,4 @@ PUSH FILES TO GitHub
 git status → shows what changed.
 git add . → stage everything (or target files).
 git commit -m "message" → record those changes.
-git push origin <main> → send them to GitHub.
+git push origin main → send them to GitHub.
