@@ -1,3 +1,3 @@
-1. Locate all JSON-LD blocks with localhost URLs across templates/static files.
-2. Determine the correct production base URL and update each JSON-LD block accordingly.
-3. Re-run checks (e.g., search) to ensure no localhost URLs remain in JSON.
+- [x] Add custom admin view routes to serve page previews (starting with home); ensure we can register more easily later.
+- [x] Build template/common assets (iframe + overlay JS/CSS toggled by ?preview=1) for editable zones.
+- [x] Hook hero slider items with preview data attributes and provide admin navigation entries.

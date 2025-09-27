@@ -4,12 +4,15 @@ from django.template.loader import get_template
 from django.http import Http404
 
 TOOLS = {
+    "home-preview": "Homepage Preview",
     "overview": "Overview",
     "domain-name": "Domain Name",
     "hosting": "Hosting",
     "website": "Website",
+    "google": "Google Tools",
     "seo": "SEO",
     "social-networks": "Social Networks",
+    "all_settings": "All Settings",
 }
 
 def admin_tool(request, slug: str):

@@ -1,0 +1,52 @@
+﻿body.preview-mode {
+  background: #f5f8ff;
+}
+body.preview-mode .admin-preview-target {
+  position: relative;
+  outline: 2px solid transparent;
+  transition: outline-color 0.2s ease;
+}
+body.preview-mode .admin-preview-target:hover {
+  outline-color: rgba(30, 77, 183, 0.75);
+}
+body.preview-mode .admin-preview-hit {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: none;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: none;
+  background: rgba(30, 77, 183, 0.9);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  z-index: 4;
+}
+body.preview-mode .admin-preview-hit svg {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+}
+body.preview-mode .admin-preview-target:hover .admin-preview-hit,
+body.preview-mode .admin-preview-hit:focus-visible {
+  display: inline-flex;
+}
+body.preview-mode .admin-preview-info {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  padding: 6px 10px;
+  font-size: 11px;
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  border-radius: 4px;
+  pointer-events: none;
+}
+body.preview-mode .hero-slide {
+  position: relative;
+}

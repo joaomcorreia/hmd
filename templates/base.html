@@ -16,9 +16,12 @@
 
     {# Page-specific additions (e.g. homepage JSON-LD) #}
     {% block extra_head %}{% endblock %}
+    {% if request.GET.preview %}
+    <link rel="stylesheet" href="{% static 'css/admin-preview.css' %}">
+    {% endif %}
 </head>
 
-<body>
+<body{% if request.GET.preview %} class="preview-mode"{% endif %}>
 
     <div class="page-wraper">
         {% include "partials/header.html" %}
@@ -47,9 +50,14 @@
     <script src="{% static 'js/bot.js' %}"></script>
     <script src="{% static 'js/gallery.js' %}"></script>
 
+    {% if request.GET.preview %}
+    <script src="{% static 'js/admin-preview.js' %}"></script>
+    {% endif %}
+
     {% block extra_js %}{% endblock %}
 
 
 </body>
 
 </html>
+

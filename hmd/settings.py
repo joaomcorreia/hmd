@@ -11,16 +11,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 WORKSPACE_DIR = Path(os.environ.get("HMD_WORKSPACE_DIR", BASE_DIR.parent))
 
 # External admin assets and templates
-ADMIN_ASSETS_DIR = os.environ.get("ADMIN_ASSETS_DIR")
-if not ADMIN_ASSETS_DIR:
-    raise ImproperlyConfigured("Set ADMIN_ASSETS_DIR to the directory that holds admin static files.")
-ADMIN_ASSETS_DIR = Path(ADMIN_ASSETS_DIR)
-
-ADMIN_TEMPLATES_DIR = WORKSPACE_DIR / "admin_templates"  # must contain "admin/..." inside
+DEFAULT_ADMIN_ASSETS = BASE_DIR.parent / "admin_assets"
+ADMIN_ASSETS_DIR = Path(os.environ.get("ADMIN_ASSETS_DIR") or DEFAULT_ADMIN_ASSETS)
+ADMIN_TEMPLATES_DIR = WORKSPACE_DIR / "admin_templates"  # optional external admin templates
 
 SECRET_KEY = 'django-insecure-g4%+x4o1=ojtwde@^_h81jp$2-71-oi5wp$4=+r+g!^7_2m@@w'
 DEBUG = True
-ALLOWED_HOSTS = ["test1.hmdklusbedrijf.nl"]
+ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     "analytics.apps.AnalyticsConfig",
@@ -92,21 +89,24 @@ USE_I18N = True
 USE_TZ = True
 
 STATIC_URL = "/static/"
-STATIC_ROOT = BASE_DIR / "srv/app/staticfiles"
+STATIC_ROOT = BASE_DIR / "staticfiles"
 STATICFILES_DIRS = [
     BASE_DIR / "static",
     ADMIN_ASSETS_DIR,  # ← external admin static (keep "admin/..." structure inside)
 ]
 
 MEDIA_URL = "/media/"
-MEDIA_ROOT = BASE_DIR / "/srv/app/media"
+MEDIA_ROOT = BASE_DIR / "media"
 
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = "justcodeworks@gmail.com"
-EMAIL_HOST_PASSWORD = "(CortX300)[Fender])"
+EMAIL_HOST_PASSWORD = "your-16-char-app-password"
 DEFAULT_FROM_EMAIL = "noreply@localhost"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# Allow admin preview iframes
+X_FRAME_OPTIONS = 'SAMEORIGIN'
